@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic-Tac-Toe Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .game-container {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .scorecard {
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic-Tac-Toe Game</h1>
+    <div>
+        <label for="player1">Player 1 Name: </label>
+        <input type="text" id="player1" placeholder="Player 1">
+        <label for="player2">Player 2 Name: </label>
+        <input type="text" id="player2" placeholder="Player 2">
+        <button onclick="startNewGame()">New Game</button>
+    </div>
+    <div class="game-container">
+        <div class="board" id="board">
+            <div class="cell" data-index="0" onclick="makeMove(0)"></div>
+            <div class="cell" data-index="1" onclick="makeMove(1)"></div>
+            <div class="cell" data-index="2" onclick="makeMove(2)"></div>
+            <div class="cell" data-index="3" onclick="makeMove(3)"></div>
+            <div class="cell" data-index="4" onclick="makeMove(4)"></div>
+            <div class="cell" data-index="5" onclick="makeMove(5)"></div>
+            <div class="cell" data-index="6" onclick="makeMove(6)"></div>
+            <div class="cell" data-index="7" onclick="makeMove(7)"></div>
+            <div class="cell" data-index="8" onclick="makeMove(8)"></div>
+        </div>
+        <div class="scorecard hidden" id="scorecard">
+            <h2>Scorecard</h2>
+            <p id="result"></p>
+            <button onclick="startNewGame()">Play Again</button>
+        </div>
+    </div>
+    <script>
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let gameActive = true;
+
+        function startNewGame() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            gameActive = true;
+            document.getElementById('board').querySelectorAll('.cell').forEach(cell => cell.textContent = '');
+            document.getElementById('scorecard').classList.add('hidden');
+        }
+
+        function makeMove(index) {
+            if (!gameActive || board[index] !== '') return;
+            board[index] = currentPlayer;
+            document.querySelector(`.cell[data-index='${index}']`).textContent = currentPlayer;
+            if (checkWin()) {
+                gameActive = false;
+                document.getElementById('result').textContent = `${currentPlayer} Wins!`;
+                document.getElementById('scorecard').classList.remove('hidden');
+            } else if (board.every(cell => cell !== '')) {
+                gameActive = false;
+                document.getElementById('result').textContent = 'It\'s a Draw!';
+                document.getElementById('scorecard').classList.remove('hidden');
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+        }
+
+        function checkWin() {
+            const winPatterns = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]  // Diagonals
+            ];
+            return winPatterns.some(pattern => pattern.every(index => board[index] === currentPlayer));
+        }
+    </script>
+</body>
+</html>
