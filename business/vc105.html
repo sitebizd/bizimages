@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTY - Business Details</title>
+  <meta name="description" content="">
+  <meta property="og:image" content="">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .gallery img {
+      width: calc(50% - 10px);
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .festival-banner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .festival-banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>GTY</h1>
+      <h2>Owned by: Sam</h2>
+    </div>
+
+    <p><strong>Business Description:</strong> <br> </p>
+    <p><strong>Address:</strong> <br> kolhapur </p>
+
+    <div>
+      <a href="tel:7498663848" class="button"><i class="fas fa-phone"></i> Call</a>
+      <a href="https://wa.me/8805442769" class="button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="#" onclick="openExternalLink('we.com')" class="button"><i class="fas fa-globe"></i> Website</a>
+      <a href="#" onclick="openExternalLink('fb.com')" class="button"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="#" onclick="openExternalLink('yt.com')" class="button"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="#" onclick="openExternalLink('in.com')" class="button"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#" onclick="openExternalLink('https:\/\/g.co\/kgs\/dV265oV')" class="button"><i class="fas fa-map-marker-alt"></i> Google Map</a>
+    </div>
+
+    <h3>Business Photos</h3>
+    <div class="gallery">
+                                                    <img src="https://sitebizd.github.io/bizimages/assets/images/vc105p3.jpg">
+                                </div>
+
+    <a href="#" id="downloadVCF" class="button"><i class="fas fa-download"></i> Download VCF</a>
+
+    <h3>Select Festival Banner</h3>
+    <option value="" disabled selected>Select a Festival</option>
+                <option value="NewYear|https://sitebizd.github.io/bizimages/assets/images/vc101p4.jpg|#FF0000">New Year</option>
+                <option value="MakarSankranti|https://sitebizd.github.io/bizimages/assets/images/vc101p3.jpg|#FFFF00">Makar Sankranti</option>
+                <option value="RepublicDay|https://sitebizd.github.io/bizimages/assets/images/vc101p2.jpg|#0000FF">Republic Day</option>
+                <option value="GaneshChaturthi|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F9%20September%2FGaneshChaturthi.jpg?alt=media&amp;token=6f12954e-2b25-41e2-940a-86c6a4c8edd3|#FFA500">Ganesh Chaturthi</option>
+                <option value="Dasara|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F10%20October%2FDussehra.jpg?alt=media&amp;token=a813271d-d54a-4835-a045-e6c46ab62dd5|#800080">Dasara</option>
+                <option value="Diwali|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F11%20November%2FDiwali.jpg?alt=media&amp;token=a9703c9b-0074-41fa-8b59-d2211ffd2179|#FFD700">Diwali</option>
+            </select>
+
+    <div id="festivalBanner" class="festival-banner">
+      <img id="festivalImage" src="" alt="Festival Image">
+      <h2>GTY</h2>
+      <h3>Sam</h3>
+      <strong>kolhapur </strong>
+    </div>
+
+    <button id="saveBanner" class="button" onclick="saveBannerAsPng()">Save Banner</button>
+  </div>
+
+  <script>
+    function openExternalLink(url) {
+      if (!url.startsWith("http")) {
+        url = "https://" + url;
+      }
+      window.open(url, "_blank");
+    }
+
+    function generateVCF() {
+      const vcf = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `FN:'Sam'`,
+        `ORG:'GTY'`,
+        `TEL;TYPE=WORK,VOICE:'7498663848'`,
+        `ADR;TYPE=WORK:;;'kolhapur '`,
+        `URL:'we.com'`,
+        'END:VCARD'
+      ].join('\n');
+
+      const blob = new Blob([vcf], { type: "text/vcard" });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = "GTY.vcf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.getElementById('downloadVCF').addEventListener('click', generateVCF);
+
+    function updateFestivalBanner() {
+      const festivalSelect = document.getElementById('festivalSelect');
+      const selectedValue = festivalSelect.value;
+
+      if (selectedValue) {
+        const imageUrl = `https:
+        document.getElementById('festivalImage').src = imageUrl;
+        document.getElementById('festivalBanner').style.display = 'block';
+      } else {
+        document.getElementById('festivalBanner').style.display = 'none';
+      }
+    }
+
+    function saveBannerAsPng() {
+      const banner = document.getElementById('festivalBanner');
+      if (!banner.style.display || banner.style.display === 'none') {
+        alert("Please select a festival first!");
+        return;
+      }
+
+      html2canvas(banner, { useCORS: true, scale: 2 }).then(canvas => {
+        canvas.toBlob(blob => {
+          const festivalName = document.getElementById('festivalSelect').value;
+          const fileName = festivalName ? `${festivalName}.png` : "festival_banner.png";
+
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          link.click();
+        });
+      }).catch(error => {
+        console.error("Error capturing banner:", error);
+      });
+    }
+  </script>
+</body>
+</html>
