@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VedChitra Groups - Business Details</title>
+  <meta name="description" content="VedChitra Groups is a company that providing business advertising and directory related services from own apps. We make it easy for businesses to get found online and for consumers to find the businesses they need. 
+
+Our business app's is easy to use for both businesses and consumers. Businesses can easily create and manage their listings, and consumers can easily find the businesses they need. We are constantly updating our services and adding new features to make it more useful for businesses and consumers alike.">
+  <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/vc104p1.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .gallery img {
+      width: calc(50% - 10px);
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .festival-banner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .festival-banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>VedChitra Groups</h1>
+      <h2>Owned by: Dr. Satish Upalkar </h2>
+    </div>
+
+    <p><strong>Business Description:</strong> <br> VedChitra Groups is a company that providing business advertising and directory related services from own apps. We make it easy for businesses to get found online and for consumers to find the businesses they need. 
+
+Our business app&#39;s is easy to use for both businesses and consumers. Businesses can easily create and manage their listings, and consumers can easily find the businesses they need. We are constantly updating our services and adding new features to make it more useful for businesses and consumers alike.</p>
+    <p><strong>Address:</strong> <br> 907, Ravalnath colony Ajara, City: Ajara, District: Kolhapur Maharashtra 416505 India</p>
+
+    <div>
+      <a href="tel:7498663848" class="button"><i class="fas fa-phone"></i> Call</a>
+      <a href="https://wa.me/8805442769" class="button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://vedchitra.com/" class="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+      <a href="facebook.com/VedChitraGroups/" class="button" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="yt.com" class="button" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="in.com" class="button" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://g.co/kgs/dV265oV" class="button" target="_blank"><i class="fas fa-map-marker-alt"></i> Google Map</a>
+    </div>
+
+    <h3>Business Photos</h3>
+    <div class="gallery">
+                        <img src="https://sitebizd.github.io/bizimages/assets/images/vc104p1.jpg">
+                                <img src="https://sitebizd.github.io/bizimages/assets/images/vc104p2.jpg">
+                                <img src="https://sitebizd.github.io/bizimages/assets/images/vc104p3.jpg">
+                                <img src="https://sitebizd.github.io/bizimages/assets/images/vc104p4.jpg">
+                  </div>
+
+    <a href="#" id="downloadVCF" class="button"><i class="fas fa-download"></i> Download VCF</a>
+
+    <h3>Select Festival Banner</h3>
+    <select id="festivalSelect" onchange="updateFestivalBanner()">
+      <option value="" disabled selected>Select a Festival</option>
+                <option value="NewYear|https://sitebizd.github.io/bizimages/assets/images/vc101p4.jpg|#FF0000">New Year</option>
+                <option value="MakarSankranti|https://sitebizd.github.io/bizimages/assets/images/vc101p3.jpg|#FFFF00">Makar Sankranti</option>
+                <option value="RepublicDay|https://sitebizd.github.io/bizimages/assets/images/vc101p2.jpg|#0000FF">Republic Day</option>
+                <option value="GaneshChaturthi|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F9%20September%2FGaneshChaturthi.jpg?alt=media&amp;token=6f12954e-2b25-41e2-940a-86c6a4c8edd3|#FFA500">Ganesh Chaturthi</option>
+                <option value="Dasara|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F10%20October%2FDussehra.jpg?alt=media&amp;token=a813271d-d54a-4835-a045-e6c46ab62dd5|#800080">Dasara</option>
+                <option value="Diwali|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F11%20November%2FDiwali.jpg?alt=media&amp;token=a9703c9b-0074-41fa-8b59-d2211ffd2179|#FFD700">Diwali</option>
+            </select>
+
+    <div id="festivalBanner" class="festival-banner">
+      <img id="festivalImage" src="" alt="Festival Image">
+      <h2>VedChitra Groups</h2>
+      <h3>Dr. Satish Upalkar </h3>
+      <strong>907, Ravalnath colony Ajara, City: Ajara, District: Kolhapur Maharashtra 416505 India</strong>
+    </div>
+  </div>
+
+  <script>
+    function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
+      const vcf = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `FN:${personName}`,
+        `ORG:${businessName}`,
+        `TEL;TYPE=WORK,VOICE:${mobileNumber}`,
+        `ADR;TYPE=WORK:;;${businessAddress}`,
+        `URL:${websiteLink}`,
+        'END:VCARD'
+      ].join('\n');
+
+      return 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+    }
+
+    document.getElementById('downloadVCF').addEventListener('click', function() {
+      const personName = "Dr. Satish Upalkar ";
+      const businessName = "VedChitra Groups";
+      const mobileNumber = "7498663848";
+      const businessAddress = "907, Ravalnath colony Ajara, City: Ajara, District: Kolhapur Maharashtra 416505 India";
+      const websiteLink = "https:\/\/vedchitra.com\/";
+
+      const vcfData = generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink);
+      const link = document.createElement('a');
+      link.href = vcfData;
+      link.download = 'business.vcf';
+      link.click();
+    });
+
+    function updateFestivalBanner() {
+      const festivalSelect = document.getElementById('festivalSelect');
+      const selectedValue = festivalSelect.value;
+
+      if (selectedValue) {
+        const imageUrl = `https:
+        document.getElementById('festivalImage').src = imageUrl;
+        document.getElementById('festivalBanner').style.display = 'block';
+      } else {
+        document.getElementById('festivalBanner').style.display = 'none';
+      }
+    }
+
+    function saveBannerAsPng() {
+      const banner = document.getElementById('festivalBanner');
+      if (!banner.style.display || banner.style.display === 'none') {
+        alert("Please select a festival first!");
+        return;
+      }
+
+      html2canvas(banner, { useCORS: true, scale: 2 }).then(canvas => {
+        canvas.toBlob(blob => {
+          const festivalName = document.getElementById('festivalSelect').value;
+          const fileName = festivalName ? `${festivalName}.png` : "festival_banner.png";
+
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = fileName;
+          link.click();
+        });
+      }).catch(error => {
+        console.error("Error capturing banner:", error);
+      });
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
