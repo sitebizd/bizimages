@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Submission Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; text-align: center; background-color: #f9f9f9; }
     .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; text-align: left; }
@@ -58,7 +59,7 @@
       submitButton.disabled = true;
 
       let formData = {
-        businessId: businessId,
+        businessId: document.getElementById("businessId").value,
         personName: document.getElementById("personName").value,
         businessName: document.getElementById("businessName").value,
         businessDescription: document.getElementById("businessDescription").value,
@@ -74,7 +75,12 @@
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" }
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Server response not OK");
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.success) {
           showThankYouMessage();
@@ -128,6 +134,15 @@
 
       <label>Business Photo 1</label>
       <input type="file" id="image1" onchange="uploadImage(this, 1)">
+
+      <label>Business Photo 2</label>
+      <input type="file" id="image2" onchange="uploadImage(this, 2)">
+
+      <label>Business Photo 3</label>
+      <input type="file" id="image3" onchange="uploadImage(this, 3)">
+
+      <label>Business Photo 4</label>
+      <input type="file" id="image4" onchange="uploadImage(this, 4)">
 
       <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
     </form>
