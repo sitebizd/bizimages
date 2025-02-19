@@ -58,15 +58,28 @@
       submitButton.innerText = "Please wait, your form is submitting...";
       submitButton.disabled = true;
 
+      // Ensure all required fields exist before accessing their values
+      const businessIdField = document.getElementById("businessId");
+      const personNameField = document.getElementById("personName");
+      const businessNameField = document.getElementById("businessName");
+
+      if (!businessIdField || !personNameField || !businessNameField) {
+        document.getElementById("errorMessage").innerText = "Error: Missing form fields. Please refresh the page.";
+        document.getElementById("errorMessage").style.display = "block";
+        submitButton.innerText = "Submit";
+        submitButton.disabled = false;
+        return;
+      }
+
       let formData = {
-        businessId: document.getElementById("businessId").value,
-        personName: document.getElementById("personName").value,
-        businessName: document.getElementById("businessName").value,
-        businessDescription: document.getElementById("businessDescription").value,
-        businessAddress: document.getElementById("businessAddress").value,
-        mobileNumber: document.getElementById("mobileNumber").value,
-        whatsappNumber: document.getElementById("whatsappNumber").value,
-        website: formatURL(document.getElementById("website").value),
+        businessId: businessIdField.value,
+        personName: personNameField.value,
+        businessName: businessNameField.value,
+        businessDescription: document.getElementById("businessDescription")?.value || "",
+        businessAddress: document.getElementById("businessAddress")?.value || "",
+        mobileNumber: document.getElementById("mobileNumber")?.value || "",
+        whatsappNumber: document.getElementById("whatsappNumber")?.value || "",
+        website: formatURL(document.getElementById("website")?.value || ""),
         ...uploadedImages
       };
 
@@ -75,12 +88,7 @@
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" }
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Server response not OK");
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         if (data.success) {
           showThankYouMessage();
