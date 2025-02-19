@@ -11,17 +11,15 @@
     input, select, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
     .button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; margin-top: 10px; }
     .button:disabled { background-color: #cccccc; cursor: not-allowed; }
-    .progress-bar { width: 100%; height: 30px; background-color: #f3f3f3; border-radius: 5px; margin-top: 20px; overflow: hidden; }
-    .progress { width: 0; height: 100%; background-color: #007BFF; transition: width 45s linear; }
-    .thank-you-section { display: none; text-align: center; }
     .error-message { color: red; font-weight: bold; display: none; }
+    .image-upload-status { font-size: 12px; color: green; margin-left: 5px; }
   </style>
   <script>
     let uploadedImages = {};
     let businessId = "";
 
     function fetchBusinessId() {
-      fetch("https://script.google.com/macros/s/AKfycbwzVr4vImnj2dPvaSIN3riB15qFEa62J7Eu5jiDGXE0ZLT1MCbV4j7yxhV6uFL3INj8/exec?action=getNextBusinessId")
+      fetch("https://script.google.com/macros/s/AKfycbyK3vd7yLVEgrXkvA3DBqolakwvKepl6Xn8PfyciQeues0zUbzlaeKe48htBft35yRF/exec?action=getNextBusinessId")
         .then(response => response.json())
         .then(data => { 
           if (data.businessId) {
@@ -45,53 +43,33 @@
       reader.onload = function(event) {
         let imageData = event.target.result.split(',')[1];
         uploadedImages["image" + imageIndex] = { name: file.name, data: imageData };
+        document.getElementById("imageStatus" + imageIndex).innerText = "✔ Uploaded";
       };
       reader.readAsDataURL(file);
+      document.getElementById("imageStatus" + imageIndex).innerText = "Uploading...";
     }
 
     function formatURL(url) {
       return (url && !url.startsWith("http")) ? "https://" + url : url;
     }
 
-    function submitForm() {
+    function submitForm(event) {
+      event.preventDefault();
       const submitButton = document.getElementById("submitButton");
       submitButton.innerText = "Please wait, your form is submitting...";
       submitButton.disabled = true;
 
-      // Ensure all required fields exist before accessing their values
-      const businessIdField = document.getElementById("businessId");
-      const personNameField = document.getElementById("personName");
-      const businessNameField = document.getElementById("businessName");
+      let formData = new FormData(event.target);
+      formData.append("businessId", businessId);
 
-      if (!businessIdField || !personNameField || !businessNameField) {
-        document.getElementById("errorMessage").innerText = "Error: Missing form fields. Please refresh the page.";
-        document.getElementById("errorMessage").style.display = "block";
-        submitButton.innerText = "Submit";
-        submitButton.disabled = false;
-        return;
-      }
-
-      let formData = {
-        businessId: businessIdField.value,
-        personName: personNameField.value,
-        businessName: businessNameField.value,
-        businessDescription: document.getElementById("businessDescription")?.value || "",
-        businessAddress: document.getElementById("businessAddress")?.value || "",
-        mobileNumber: document.getElementById("mobileNumber")?.value || "",
-        whatsappNumber: document.getElementById("whatsappNumber")?.value || "",
-        website: formatURL(document.getElementById("website")?.value || ""),
-        ...uploadedImages
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbwzVr4vImnj2dPvaSIN3riB15qFEa62J7Eu5jiDGXE0ZLT1MCbV4j7yxhV6uFL3INj8/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbyK3vd7yLVEgrXkvA3DBqolakwvKepl6Xn8PfyciQeues0zUbzlaeKe48htBft35yRF/exec", {
         method: "POST",
-        body: JSON.stringify(formData),
-        headers: { "Content-Type": "application/json" }
+        body: formData
       })
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          showThankYouMessage();
+          window.location.href = "thanks.html";
         } else {
           throw new Error(data.message || "Form submission failed");
         }
@@ -105,60 +83,75 @@
       });
     }
 
-    function showThankYouMessage() {
-      document.getElementById("formSection").style.display = "none";
-      document.getElementById("thankYouSection").style.display = "block";
-    }
-
     window.onload = fetchBusinessId;
   </script>
 </head>
 <body>
 
-  <div id="formSection" class="container">
+  <div class="container">
     <h2>Business Submission Form</h2>
     <div id="errorMessage" class="error-message"></div>
-    <form>
+    <form id="myForm" onsubmit="submitForm(event)">
       <label>Business ID</label>
       <input type="text" id="businessId" readonly>
 
       <label>Person Name</label>
-      <input type="text" id="personName" required>
+      <input type="text" name="personName" required>
 
       <label>Business Name</label>
-      <input type="text" id="businessName" required>
+      <input type="text" name="businessName" required>
 
       <label>Business Description</label>
-      <textarea id="businessDescription"></textarea>
+      <textarea name="businessDescription"></textarea>
 
       <label>Business Address</label>
-      <input type="text" id="businessAddress" required>
+      <input type="text" name="businessAddress" required>
+
+      <label>Market Area</label>
+      <input type="text" name="marketArea">
+
+      <label>Payment Status</label>
+      <select name="paymentStatus">
+        <option value="Pending">Pending</option>
+        <option value="Paid">Paid</option>
+      </select>
+
+      <label>Verified Badges</label>
+      <input type="text" name="verifiedBadges">
+
+      <label>Category 1</label>
+      <input type="text" name="category1">
+
+      <label>Category 2</label>
+      <input type="text" name="category2">
 
       <label>Mobile Number</label>
-      <input type="tel" id="mobileNumber" required>
+      <input type="tel" name="mobileNumber" required>
 
       <label>WhatsApp Number</label>
-      <input type="tel" id="whatsappNumber" required>
+      <input type="tel" name="whatsappNumber" required>
+
+      <label>Website</label>
+      <input type="url" name="website">
 
       <label>Business Photo 1</label>
-      <input type="file" id="image1" onchange="uploadImage(this, 1)">
+      <input type="file" name="image1" onchange="uploadImage(this, 1)">
+      <span id="imageStatus1" class="image-upload-status"></span>
 
       <label>Business Photo 2</label>
-      <input type="file" id="image2" onchange="uploadImage(this, 2)">
+      <input type="file" name="image2" onchange="uploadImage(this, 2)">
+      <span id="imageStatus2" class="image-upload-status"></span>
 
       <label>Business Photo 3</label>
-      <input type="file" id="image3" onchange="uploadImage(this, 3)">
+      <input type="file" name="image3" onchange="uploadImage(this, 3)">
+      <span id="imageStatus3" class="image-upload-status"></span>
 
       <label>Business Photo 4</label>
-      <input type="file" id="image4" onchange="uploadImage(this, 4)">
+      <input type="file" name="image4" onchange="uploadImage(this, 4)">
+      <span id="imageStatus4" class="image-upload-status"></span>
 
-      <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
+      <button type="submit" id="submitButton">Submit</button>
     </form>
-  </div>
-
-  <div id="thankYouSection" class="thank-you-section">
-    <h3>Thank You for Your Submission!</h3>
-    <div class="progress-bar"><div class="progress"></div></div>
   </div>
 
 </body>
