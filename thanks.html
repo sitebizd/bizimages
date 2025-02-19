@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Submission Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; text-align: center; }
+    .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; text-align: left; }
+    input, select, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+    .button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; margin-top: 10px; }
+    .button:disabled { background-color: #cccccc; cursor: not-allowed; }
+    .image-upload-status { font-size: 12px; color: green; margin-left: 5px; }
+  </style>
+  <script>
+    let uploadedImages = {};
+
+    function uploadImage(fileInput, imageIndex) {
+      let file = fileInput.files[0];
+      if (!file) return;
+
+      let reader = new FileReader();
+      reader.onload = function(event) {
+        let imageData = event.target.result.split(',')[1];
+        uploadedImages["image" + imageIndex] = { name: file.name, data: imageData };
+        document.getElementById("imageStatus" + imageIndex).innerText = "✔ Uploaded";
+      };
+      reader.readAsDataURL(file);
+      document.getElementById("imageStatus" + imageIndex).innerText = "Uploading...";
+    }
+
+    function formatURL(url) {
+      if (url && !url.startsWith("http")) {
+        return "https://" + url;
+      }
+      return url;
+    }
+
+    function submitForm() {
+      const submitButton = document.getElementById("submitButton");
+      submitButton.innerText = "Please wait, your form is submitting...";
+      submitButton.disabled = true;
+
+      let formData = {
+        personName: document.getElementById("personName").value,
+        businessName: document.getElementById("businessName").value,
+        businessDescription: document.getElementById("businessDescription").value,
+        businessAddress: document.getElementById("businessAddress").value,
+        marketArea: document.getElementById("marketArea").value,
+        paymentStatus: document.getElementById("paymentStatus").value,
+        verifiedBadges: document.getElementById("verifiedBadges").value,
+        category1: document.getElementById("category1").value,
+        category2: document.getElementById("category2").value,
+        mobileNumber: document.getElementById("mobileNumber").value,
+        whatsappNumber: document.getElementById("whatsappNumber").value,
+        website: formatURL(document.getElementById("website").value),
+        facebookPage: formatURL(document.getElementById("facebookPage").value),
+        youtubeChannel: formatURL(document.getElementById("youtubeChannel").value),
+        instagram: formatURL(document.getElementById("instagram").value),
+        googleMap: formatURL(document.getElementById("googleMap").value),
+        ...uploadedImages
+      };
+
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          window.location.href = "https://example.com/thanks.html";
+        } else {
+          alert("Form submission failed. Try again.");
+          submitButton.innerText = "Submit";
+          submitButton.disabled = false;
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Submission failed. Try again.");
+        submitButton.innerText = "Submit";
+        submitButton.disabled = false;
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Business Submission Form</h2>
+    <form>
+      <label>Person Name</label>
+      <input type="text" id="personName" required>
+
+      <label>Business Name</label>
+      <input type="text" id="businessName" required>
+
+      <label>Business Description</label>
+      <textarea id="businessDescription"></textarea>
+
+      <label>Business Address</label>
+      <input type="text" id="businessAddress" required>
+
+      <label>Market Area</label>
+      <input type="text" id="marketArea">
+
+      <label>Payment Status</label>
+      <select id="paymentStatus">
+        <option value="Pending">Pending</option>
+        <option value="Paid">Paid</option>
+      </select>
+
+      <label>Verified Badges</label>
+      <select id="verifiedBadges">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+
+      <label>Category 1</label>
+      <input type="text" id="category1">
+
+      <label>Category 2</label>
+      <input type="text" id="category2">
+
+      <label>Mobile Number</label>
+      <input type="tel" id="mobileNumber" required>
+
+      <label>WhatsApp Number</label>
+      <input type="tel" id="whatsappNumber" required>
+
+      <label>Website</label>
+      <input type="url" id="website">
+
+      <label>Facebook Page</label>
+      <input type="url" id="facebookPage">
+
+      <label>YouTube Channel</label>
+      <input type="url" id="youtubeChannel">
+
+      <label>Instagram</label>
+      <input type="url" id="instagram">
+
+      <label>Google Map</label>
+      <input type="url" id="googleMap">
+
+      <label>Business Photo 1</label>
+      <input type="file" id="image1" onchange="uploadImage(this, 1)">
+      <span id="imageStatus1" class="image-upload-status"></span>
+
+      <label>Business Photo 2</label>
+      <input type="file" id="image2" onchange="uploadImage(this, 2)">
+      <span id="imageStatus2" class="image-upload-status"></span>
+
+      <label>Business Photo 3</label>
+      <input type="file" id="image3" onchange="uploadImage(this, 3)">
+      <span id="imageStatus3" class="image-upload-status"></span>
+
+      <label>Business Photo 4</label>
+      <input type="file" id="image4" onchange="uploadImage(this, 4)">
+      <span id="imageStatus4" class="image-upload-status"></span>
+
+      <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
