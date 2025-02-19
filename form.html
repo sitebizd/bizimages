@@ -21,7 +21,7 @@
     let businessId = "";
 
     function fetchBusinessId() {
-      fetch("https://script.google.com/macros/s/1yRYm5ob2S7EZjQ_AYJ5KUmqQUlBcyhP3_dDKBmbMKRlwtlmNbTNBWMuB/exec?action=getNextBusinessId")
+      fetch("https://script.google.com/macros/s/AKfycbwzVr4vImnj2dPvaSIN3riB15qFEa62J7Eu5jiDGXE0ZLT1MCbV4j7yxhV6uFL3INj8/exec?action=getNextBusinessId")
         .then(response => response.json())
         .then(data => { 
           businessId = data.businessId;
@@ -73,7 +73,7 @@
         ...uploadedImages
       };
 
-      fetch("https://script.google.com/macros/s/1yRYm5ob2S7EZjQ_AYJ5KUmqQUlBcyhP3_dDKBmbMKRlwtlmNbTNBWMuB/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbwzVr4vImnj2dPvaSIN3riB15qFEa62J7Eu5jiDGXE0ZLT1MCbV4j7yxhV6uFL3INj8/exec", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" }
