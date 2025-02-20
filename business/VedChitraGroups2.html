@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>वेदचित्रा ग्रुप्स  - Business Details</title>
+  <meta name="description" content="काळी मिरी हा स्वयंपाकघरात सर्वाधिक वापरल्या जाणाऱ्या मसाल्यांपैकी एक आहे">
+  <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/VedChitraGroups2p1.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: calc(50% - 10px);
+      cursor: pointer;
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+    }
+    .festival-banner {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .festival-banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>वेदचित्रा ग्रुप्स </h1>
+      <h2>Owned by: सतीश </h2>
+    </div>
+
+    <p><strong>Business Description:</strong> काळी मिरी हा स्वयंपाकघरात सर्वाधिक वापरल्या जाणाऱ्या मसाल्यांपैकी एक आहे</p>
+    <p><strong>Address:</strong> 907, Ravalnath Colony, Ajara</p>
+
+    <div class="contact-section">
+              <a href="tel:55" class="button"><i class="fas fa-phone"></i> Call 55</a>
+                    <a href="https://wa.me/55" class="button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://gmail.com" class="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+                    <a href="hh.com" class="button" target="_blank"><i class="fab fa-facebook"></i> Facebook Page</a>
+                    <a href="dd.com" class="button" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
+                    <a href="dc.com" class="button" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="ft.com" class="button" target="_blank"><i class="fas fa-map-marker-alt"></i> Google Map</a>
+          </div>
+
+    <h3 style="margin-top: 20px;">Business Photos</h3>
+    <div class="gallery">
+                        <img src="https://sitebizd.github.io/bizimages/assets/images/VedChitraGroups2p1.jpg" class="gallery-photo">
+                                <img src="https://sitebizd.github.io/bizimages/assets/images/VedChitraGroups2p2.jpg" class="gallery-photo">
+                                <img src="https://sitebizd.github.io/bizimages/assets/images/VedChitraGroups2p3.jpg" class="gallery-photo">
+                                </div>
+
+    <a href="#" id="downloadVCF" class="button"><i class="fas fa-download"></i> Download VCF</a>
+
+    <div class="container">
+      <div class="dropdown">
+        <select id="festivalSelect" onchange="updateFestivalBanner()">
+          <option value="" disabled selected>Select a Festival</option>
+          <option value="NewYear|#FF0000">New Year</option>
+          <option value="MakarSankranti|#FFFF00">Makar Sankranti</option>
+          <option value="RepublicDay|#0000FF">Republic Day</option>
+          <option value="GaneshChaturthi|#FFA500">Ganesh Chaturthi</option>
+          <option value="Dasara|#800080">Dasara</option>
+          <option value="Diwali|#FFD700">Diwali</option>
+        </select>
+      </div>
+
+      <div id="festivalBanner" class="festival-banner">
+        <h2>वेदचित्रा ग्रुप्स </h2>
+        <h3>सतीश </h3>
+        <strong>907, Ravalnath Colony, Ajara</strong>
+        <strong><i class="fas fa-phone icon"></i> 55</strong>
+      </div>
+
+      <button id="saveBanner" class="button" onclick="saveBannerAsPng()">Save Banner</button>
+    </div>
+
+  <script>
+
+function formatURL(url) {
+  return url && !url.startsWith("http") ? "https://" + url : url;
+}
+
+    function generateVCF() {
+      const vcf = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `FN:'सतीश '`,
+        `ORG:'वेदचित्रा ग्रुप्स '`,
+        `TEL;TYPE=WORK,VOICE:'55'`,
+        `ADR;TYPE=WORK:;;'907, Ravalnath Colony, Ajara'`,
+        `URL:'https:\/\/gmail.com'`,
+        'END:VCARD'
+      ].join('\n');
+
+      const vcfData = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+      const link = document.createElement('a');
+      link.href = vcfData;
+      link.download = 'business.vcf';
+      link.click();
+    }
+
+    document.getElementById('downloadVCF').addEventListener('click', generateVCF);
+
+    function updateFestivalBanner() {
+      const festivalSelect = document.getElementById('festivalSelect');
+      const selectedValue = festivalSelect.value;
+      if (selectedValue) {
+        document.getElementById('festivalBanner').style.display = 'block';
+        document.getElementById('saveBanner').style.display = 'block';
+        document.getElementById('festivalBanner').style.backgroundColor = selectedValue.split('|')[1];
+      } else {
+        document.getElementById('festivalBanner').style.display = 'none';
+      }
+    }
+
+    function saveBannerAsPng() {
+      html2canvas(document.getElementById('festivalBanner'), { useCORS: true, scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL();
+        link.download = 'festival_banner.png';
+        link.click();
+      }).catch(error => console.error("Error capturing banner:", error));
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+</body>
+</html>
