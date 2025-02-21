@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Marathi Support - ?????????? ?????</title>
+    <meta name="description" content="???? ???? ?? ???????????? ???????? ???????? ???????? ???????????? ?? ???">
+    <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/HealthMarathiSupport9p1.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&amp;family=Noto&#43;Sans&#43;Devanagari:wght@400;700&amp;display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;  
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: calc(50% - 10px);
+            cursor: pointer;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        .festival-banner {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .festival-banner img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Health Marathi Support</h1>
+            <h2>????: Sat</h2>
+        </div>
+
+        <p><strong>?????????? ?????:</strong> ???? ???? ?? ???????????? ???????? ???????? ???????? ???????????? ?? ???</p>
+        <p><strong>?????:</strong> 907, Ravalnath Colony, Ajara</p>
+
+        <div class="contact-section">
+                            <a href="tel:55" class="button"><i class="fas fa-phone"></i> 55 ??? ???</a>
+                                        <a href="https://wa.me/55" class="button"><i class="fab fa-whatsapp"></i> ?????????</a>
+                                                                                </div>
+
+        <h3 style="margin-top: 20px;">??????? ????</h3>
+        <div class="gallery">
+                                                <img src="https://sitebizd.github.io/bizimages/assets/images/HealthMarathiSupport9p1.jpg" class="gallery-photo">
+                                                                                                                        <img src="https://sitebizd.github.io/bizimages/assets/images/HealthMarathiSupport9p4.jpg" class="gallery-photo">
+                                    </div>
+
+        <a href="#" id="downloadVCF" class="button"><i class="fas fa-download"></i> VCF ??????? ???</a>
+
+        <div class="container">
+            <div class="dropdown">
+                <select id="festivalSelect" onchange="updateFestivalBanner()">
+                    <option value="" disabled selected>????? ?????</option>
+                    <option value="NewYear|#FF0000">???? ????</option>
+                    <option value="MakarSankranti|#FFFF00">??? ?????????</option>
+                    <option value="RepublicDay|#0000FF">??????????? ???</option>
+                    <option value="GaneshChaturthi|#FFA500">???? ???????</option>
+                    <option value="Dasara|#800080">????</option>
+                    <option value="Diwali|#FFD700">??????</option>
+                </select>
+            </div>
+
+            <div id="festivalBanner" class="festival-banner">
+                <h2>Health Marathi Support</h2>
+                <h3>Sat</h3>
+                <strong>907, Ravalnath Colony, Ajara</strong>
+                <strong><i class="fas fa-phone icon"></i> 55</strong>
+            </div>
+
+            <button id="saveBanner" class="button" onclick="saveBannerAsPng()">???? ??? ???</button>
+        </div>
+
+    <script>
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
