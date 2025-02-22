@@ -4,41 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Submission Form</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; background-color: #f9f9f9; }
-    .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; text-align: left; }
-    input, select, textarea { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-    .button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; margin-top: 10px; }
-    .button:disabled { background-color: #cccccc; cursor: not-allowed; }
-    .error-message { color: red; font-weight: bold; display: none; }
-    .image-upload-status { font-size: 12px; color: green; margin-left: 5px; }
-  </style>
   <script>
     let uploadedImages = {};
-    let businessId = "";
 
-    function fetchBusinessId() {
-      fetch("https://script.google.com/macros/s/AKfycbyK3vd7yLVEgrXkvA3DBqolakwvKepl6Xn8PfyciQeues0zUbzlaeKe48htBft35yRF/exec?action=getNextBusinessId")
-        .then(response => response.json())
-        .then(data => { 
-          if (data.businessId) {
-            businessId = data.businessId;
-            document.getElementById("businessId").value = businessId;
-          } else {
-            throw new Error("Failed to fetch Business ID");
-          }
+    function generateProfileID() {
+      let businessNameEnglish = document.getElementById("businessNameEnglish").value.trim();
+      if (!businessNameEnglish) return;
+
+      fetch('https://script.google.com/macros/s/AKfycbyF7vxuHfNDHe9Wuw8rsODj9hpYI2Zrt_ZZ9JdFMR59fpg4yi0FwOiuBBF8_k_zYmClXw/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          functionName: 'generateUniqueProfileID',
+          parameters: [businessNameEnglish]
         })
-        .catch(error => {
-          document.getElementById("errorMessage").innerText = "Error fetching Business ID. Please refresh.";
-          document.getElementById("errorMessage").style.display = "block";
-          console.error("Error fetching Business ID:", error);
-        });
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("profileID").value = data.response;
+      })
+      .catch(error => console.error('Error:', error));
     }
 
     function uploadImage(fileInput, imageIndex) {
       let file = fileInput.files[0];
       if (!file) return;
+
       let reader = new FileReader();
       reader.onload = function(event) {
         let imageData = event.target.result.split(',')[1];
@@ -49,110 +42,170 @@
       document.getElementById("imageStatus" + imageIndex).innerText = "Uploading...";
     }
 
-    function formatURL(url) {
-      return (url && !url.startsWith("http")) ? "https://" + url : url;
-    }
+    function submitForm() {
+      let formData = {
+        profileID: document.getElementById("profileID").value.trim(),
+        personName: document.getElementById("personName").value,
+        businessName: document.getElementById("businessName").value,
+        businessNameEnglish: document.getElementById("businessNameEnglish").value,
+        businessDescription: document.getElementById("businessDescription").value,
+        businessAddress: document.getElementById("businessAddress").value,
+        marketArea: document.getElementById("marketArea").value,
+        paymentStatus: document.getElementById("paymentStatus").value,
+        verifiedBadges: document.getElementById("verifiedBadges").value,
+        category1: document.getElementById("category1").value,
+        category2: document.getElementById("category2").value,
+        mobileNumber: document.getElementById("mobileNumber").value,
+        whatsappNumber: document.getElementById("whatsappNumber").value,
+        website: document.getElementById("website").value,
+        facebookPage: document.getElementById("facebookPage").value,
+        youtubeChannel: document.getElementById("youtubeChannel").value,
+        instagram: document.getElementById("instagram").value,
+        googleMap: document.getElementById("googleMap").value,
+        ...uploadedImages
+      };
 
-    function submitForm(event) {
-      event.preventDefault();
-      const submitButton = document.getElementById("submitButton");
-      submitButton.innerText = "Please wait, your form is submitting...";
-      submitButton.disabled = true;
+      document.getElementById("submitBtn").innerText = "Submitting... Please wait";
+      document.getElementById("submitBtn").disabled = true;
 
-      let formData = new FormData(event.target);
-      formData.append("businessId", businessId);
-
-      fetch("https://script.google.com/macros/s/AKfycbyK3vd7yLVEgrXkvA3DBqolakwvKepl6Xn8PfyciQeues0zUbzlaeKe48htBft35yRF/exec", {
-        method: "POST",
-        body: formData
+      fetch('YOUR_WEB_APP_URL', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          functionName: 'submitForm',
+          parameters: [formData]
+        })
       })
       .then(response => response.json())
       .then(data => {
-        if (data.success) {
-          window.location.href = "thanks.html";
-        } else {
-          throw new Error(data.message || "Form submission failed");
-        }
+        alert(data.response.message);
+        document.getElementById("businessForm").reset();
+        uploadedImages = {};
+        document.getElementById("submitBtn").innerText = "Submit";
+        document.getElementById("submitBtn").disabled = false;
+        document.getElementById("generatedProfileID").innerText = "Generated Profile ID: " + data.response.profileID;
+        var openButton = document.createElement("button");
+        openButton.innerText = "Open URL";
+        openButton.onclick = function() {
+          window.open("https://sitebizd.github.io/bizimages/business/" + data.response.profileID, "_blank");
+        };
+        document.getElementById("generatedProfileID").appendChild(openButton);
       })
-      .catch(error => {
-        document.getElementById("errorMessage").innerText = "Submission failed. Please try again.";
-        document.getElementById("errorMessage").style.display = "block";
-        submitButton.innerText = "Submit";
-        submitButton.disabled = false;
-        console.error("Submission Error:", error);
-      });
+      .catch(error => console.error('Error:', error));
     }
-
-    window.onload = fetchBusinessId;
   </script>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container h2 {
+      text-align: center;
+    }
+    .container label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .container input,
+    .container textarea,
+    .container button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    .image-upload-status {
+      font-size: 12px;
+      color: green;
+    }
+    .profile-id {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-
   <div class="container">
     <h2>Business Submission Form</h2>
-    <div id="errorMessage" class="error-message"></div>
-    <form id="myForm" onsubmit="submitForm(event)">
-      <label>Business ID</label>
-      <input type="text" id="businessId" readonly>
+    <form id="businessForm">
+      <label class="required">Business Name</label>
+      <input type="text" id="businessName" required>
 
-      <label>Person Name</label>
-      <input type="text" name="personName" required>
+      <label class="required">Write Business Name in English</label>
+      <input type="text" id="businessNameEnglish" required onblur="generateProfileID()">
 
-      <label>Business Name</label>
-      <input type="text" name="businessName" required>
+      <label>Profile ID (Auto-Generated)</label>
+      <input type="text" id="profileID" readonly>
+
+      <label class="required">Person Name</label>
+      <input type="text" id="personName" required>
 
       <label>Business Description</label>
-      <textarea name="businessDescription"></textarea>
+      <textarea id="businessDescription"></textarea>
 
-      <label>Business Address</label>
-      <input type="text" name="businessAddress" required>
+      <label class="required">Business Address</label>
+      <input type="text" id="businessAddress" required>
 
       <label>Market Area</label>
-      <input type="text" name="marketArea">
+      <input type="text" id="marketArea">
 
       <label>Payment Status</label>
-      <select name="paymentStatus">
-        <option value="Pending">Pending</option>
-        <option value="Paid">Paid</option>
-      </select>
+      <input type="text" id="paymentStatus">
 
       <label>Verified Badges</label>
-      <input type="text" name="verifiedBadges">
+      <input type="text" id="verifiedBadges">
 
       <label>Category 1</label>
-      <input type="text" name="category1">
+      <input type="text" id="category1">
 
       <label>Category 2</label>
-      <input type="text" name="category2">
+      <input type="text" id="category2">
 
-      <label>Mobile Number</label>
-      <input type="tel" name="mobileNumber" required>
+      <label class="required">Mobile Number</label>
+      <input type="tel" id="mobileNumber" required>
 
-      <label>WhatsApp Number</label>
-      <input type="tel" name="whatsappNumber" required>
+      <label class="required">WhatsApp Number</label>
+      <input type="tel" id="whatsappNumber" required>
 
       <label>Website</label>
-      <input type="url" name="website">
+      <input type="url" id="website">
+
+      <label>Facebook Page</label>
+      <input type="url" id="facebookPage">
+
+      <label>YouTube Channel</label>
+      <input type="url" id="youtubeChannel">
+
+      <label>Instagram</label>
+      <input type="url" id="instagram">
+
+      <label>Google Map</label>
+      <input type="url" id="googleMap">
 
       <label>Business Photo 1</label>
-      <input type="file" name="image1" onchange="uploadImage(this, 1)">
+      <input type="file" id="image1" onchange="uploadImage(this, 1)">
       <span id="imageStatus1" class="image-upload-status"></span>
 
       <label>Business Photo 2</label>
-      <input type="file" name="image2" onchange="uploadImage(this, 2)">
+      <input type="file" id="image2" onchange="uploadImage(this, 2)">
       <span id="imageStatus2" class="image-upload-status"></span>
 
       <label>Business Photo 3</label>
-      <input type="file" name="image3" onchange="uploadImage(this, 3)">
+      <input type="file" id="image3" onchange="uploadImage(this, 3)">
       <span id="imageStatus3" class="image-upload-status"></span>
 
       <label>Business Photo 4</label>
-      <input type="file" name="image4" onchange="uploadImage(this, 4)">
+      <input type="file" id="image4" onchange="uploadImage(this, 4)">
       <span id="imageStatus4" class="image-upload-status"></span>
 
-      <button type="submit" id="submitButton">Submit</button>
+      <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
+      <p id="generatedProfileID" class="profile-id"></p>
     </form>
   </div>
-
 </body>
 </html>
