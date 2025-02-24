@@ -60,6 +60,7 @@
         .business-address, .business-description {
             width: 80%;
             margin: 10px auto;
+			margin-bottom: 25px;
             font-weight: bold;
         }
         .business-address {
@@ -138,6 +139,46 @@
             font-size: 20px;
             margin-bottom: 5px;
         }
+		.photo-card {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;  
+        }
+        .photo-card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 4px solid white;
+        }
+        .photo-caption {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: black;
+        }
+		.hairline-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .hairline {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+        .pro-title {
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
         @media (max-width: 360px) {
             .social-icon {
                 width: 45%;
@@ -153,8 +194,14 @@
         <div class="name">Raj Desai</div>
         <div class="business-name">राम किराणा स्टोअर, आजरा </div>
         <p class="business-address">907, Ravalnath Colony, Ajara</p>
-        <p class="business-description">सर्व प्रकारचे किराणा साहित्य आणि जीवनावश्यक सर्व वस्तू एकाच छताखाली उपलब्ध.आमच्याकडे दर्जेदार धान्य, डाळी, मसाला, चहा-कॉफी पावडर, सुकामेवा, बिस्किटे, हवाबंद पदार्थ याशिवाय डिटर्जंट, साबण, टूथपेस्ट, सौंदर्य प्रसादने आणि गृहोपयोगी वस्तू योग्य दरात मिळेल.</p><br>
-        <a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a>
+		
+		<div class="hairline-container">
+        <div class="hairline"></div>
+        <div class="pro-title">Business Description</div>
+        <div class="hairline"></div></div>
+		
+        <p class="business-description">सर्व प्रकारचे किराणा साहित्य आणि जीवनावश्यक सर्व वस्तू एकाच छताखाली उपलब्ध.आमच्याकडे दर्जेदार धान्य, डाळी, मसाला, चहा-कॉफी पावडर, सुकामेवा, बिस्किटे, हवाबंद पदार्थ याशिवाय डिटर्जंट, साबण, टूथपेस्ट, सौंदर्य प्रसादने आणि गृहोपयोगी वस्तू योग्य दरात मिळेल.</p>
+        <div class="buttons"><a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a></div>
         <div class="buttons">
             <a href="tel:74986%2063848" class="button call"><i class="fas fa-phone"></i> Call</a>
             <a href="https://wa.me/55" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -166,11 +213,33 @@
                                         <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
                     </div>
     </div>
-	<h3 style="margin-top: 20px;">Business Photos</h3>
-    <div class="gallery">
-                        <img src="https://sitebizd.github.io/bizimages/assets/images/RajKiranap1.jpg" class="gallery-photo">
-                                <img src="https://sitebizd.github.io/bizimages/assets/images/RajKiranap2.jpg" class="gallery-photo">
-                                              </div>
+	 <div class="photo-card" id="photoCard1">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/RajKiranap2.jpg" alt="Business Photo 2" onerror="hidePhotoCard(1)">
+        <div class="photo-caption">राम किराणा स्टोअर, आजरा </div>
+    </div>
+    <div class="photo-card" id="photoCard2">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/AardBhumip3.jpg" alt="Business Photo 3" onerror="hidePhotoCard(2)">
+        <div class="photo-caption">राम किराणा स्टोअर, आजरा </div>
+    </div>
+    <div class="photo-card" id="photoCard3">
+        <img src="" alt="Business Photo 4" onerror="hidePhotoCard(3)">
+        <div class="photo-caption">राम किराणा स्टोअर, आजरा </div>
+    </div>
+
+    <script>
+        function hidePhotoCard(index) {
+            document.getElementById("photoCard" + index).style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let photoCards = document.querySelectorAll('.photo-card img');
+            photoCards.forEach((img) => {
+                if (img.src && img.src.trim() !== "") {
+                    img.parentElement.style.display = "block"; 
+                }
+            });
+        });
+    </script>
 
     
 	<script>
