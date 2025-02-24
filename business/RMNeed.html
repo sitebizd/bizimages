@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>RM Need  - Business Details</title>
+ <meta name="description" content="सर्व प्रकारचे किराणा साहित्य आणि जीवनावश्यक सर्व वस्तू एकाच छताखाली उपलब्ध.आमच्याकडे दर्जेदार धान्य, डाळी, मसाला, चहा-कॉफी पावडर, सुकामेवा, बिस्किटे, हवाबंद पदार्थ याशिवाय डिटर्जंट, साबण, टूथपेस्ट, सौंदर्य प्रसादने आणि गृहोपयोगी वस्तू योग्य दरात मिळेल.">
+ <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/RMNeedp1.jpg">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <style>
+ body {
+ font-family: 'Roboto', Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f4f4f4;
+ text-align: center;
+ }
+
+ .card {
+ width: 90%;
+ max-width: 400px;
+ background: white;
+ margin: 20px auto;
+ padding: 15px;
+ border-radius: 15px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ text-align: center;
+ }
+
+ .header {
+ background: blue;
+ padding: 40px 0 50px;
+ border-top-left-radius: 15px;
+ border-top-right-radius: 15px;
+ position: relative;
+ }
+
+ .business-photo {
+ width: 100%;
+ border-radius: 10px;
+ margin-bottom: 10px;
+ }
+
+ .photo-caption {
+ font-size: 14px;
+ color: black;
+ font-weight: bold;
+ }
+
+ .name {
+ margin-top: 20px;
+ font-size: 20px;
+ font-weight: bold;
+ }
+
+ .business-name {
+ margin-top: 10px;
+ font-size: 22px;
+ font-weight: bold;
+ color: blue;
+ }
+
+ .business-address, .business-description {
+ width: 80%;
+ margin: 10px auto;
+ font-weight: bold;
+ }
+
+ .buttons {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ margin-top: 15px;
+ }
+
+ .button {
+ flex: 1;
+ padding: 12px;
+ border: none;
+ border-radius: 25px;
+ cursor: pointer;
+ font-size: 18px;
+ font-weight: bold;
+ text-decoration: none;
+ text-align: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8px;
+ }
+
+ .call {
+ background: blue;
+ color: white;
+ }
+
+ .whatsapp {
+ background: green;
+ color: white;
+ }
+
+ .download {
+ background: blue;
+ color: white;
+ width: 100%;
+ margin-top: 10px;
+ padding: 14px;
+ border-radius: 25px;
+ font-size: 18px;
+ font-weight: bold;
+ border: none;
+ cursor: pointer;
+ text-decoration: none;
+ text-align: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ }
+
+ .social-icons {
+ background: blue;
+ padding: 10px;
+ border-radius: 15px;
+ margin-top: 15px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 15px;
+ }
+
+ .social-icon {
+ color: white;
+ text-decoration: none;
+ text-align: center;
+ font-size: 14px;
+ font-weight: bold;
+ width: 20%;
+ }
+
+ .social-icon i {
+ font-size: 20px;
+ margin-bottom: 5px;
+ }
+
+ @media (max-width: 360px) {
+ .social-icon {
+ width: 45%;
+ }
+ }
+ </style>
+</head>
+<body>
+
+ 
+ <div class="card">
+ <div class="header"></div>
+ <div class="name">राम किराणा स्टोअर, आजरा </div>
+ <div class="business-name">RM Need </div>
+ <p class="business-address">907, Ravalnath Colony, Ajara</p>
+ <p class="business-description">सर्व प्रकारचे किराणा साहित्य आणि जीवनावश्यक सर्व वस्तू एकाच छताखाली उपलब्ध.आमच्याकडे दर्जेदार धान्य, डाळी, मसाला, चहा-कॉफी पावडर, सुकामेवा, बिस्किटे, हवाबंद पदार्थ याशिवाय डिटर्जंट, साबण, टूथपेस्ट, सौंदर्य प्रसादने आणि गृहोपयोगी वस्तू योग्य दरात मिळेल.</p><br>
+
+
+<div class="buttons">
+<a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a>
+ </div>
+
+ <div class="buttons">
+ <a href="tel:74986%2063848" class="button call"><i class="fas fa-phone"></i> Call</a>
+ <a href="https://wa.me/55" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+ </div>
+
+ <div class="social-icons">
+  <a href="https://gmail.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
+   <a href="https://vv.com" class="social-icon"><i class="fas fa-map-marker-alt"></i><br>Map</a>
+   <a href="https://yt.com" class="social-icon"><i class="fab fa-youtube"></i><br>YouTube</a>
+   <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
+  </div>
+ </div>
+
+
+
+<script>
+      function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${personName}`,
+          `ORG:${businessName}`,
+          `TEL;TYPE=WORK,VOICE:${mobileNumber}`,
+          `ADR;TYPE=WORK:;;${businessAddress}`,
+          `URL:${websiteLink}`,
+          'END:VCARD'
+        ].join('\n');
+        
+        return 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+      }
+
+      document.getElementById('downloadVCF').addEventListener('click', function() {
+        const personName = "राम किराणा स्टोअर, आजरा ";
+        const businessName = "RM Need ";
+        const mobileNumber = "74986 63848";
+        const businessAddress = "907, Ravalnath Colony, Ajara";
+        const websiteLink = "https:\/\/gmail.com";
+
+        const vcfData = generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink);
+        const link = document.createElement('a');
+        link.href = vcfData;
+        link.download = 'business.vcf';
+        link.click();
+      });
+    </script>
+</body>
+</html>
