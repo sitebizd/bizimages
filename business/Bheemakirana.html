@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भीमा किराणा  - Business Details</title>
+    <meta name="description" content="It looks like you sent an empty message. Let me know how I can assist you! The error **&#34;Script function not found: doGet&#34;** occurs when your Google Apps Script **does not have a &#96;doGet(e)&#96; function** or it's not properly deployed as a Web App.
+
+---
+
+### **✅ Solution 1: Add &#96;doGet(e)&#96; Function in &#96;code.gs&#96;**
+Your **&#96;code.gs&#96;** file must contain a &#96;doGet(e)&#96; function to handle HTTP GET requests.
+
+#### **Example &#96;code.gs&#96; with &#96;doGet(e)&#96;**
+&#96;&#96;&#96;javascript
+function doGet(e) {
+  return HtmlService.createHtmlOutputFromFile('form.html')
+      .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+&#96;&#96;&#96;
+This serves your &#96;form.html&#96; page when the Web App URL is accessed.
+
+---
+
+### **✅ Solution 2: Check Deployment**
+If your &#96;doGet(e)&#96; function exists but still gives an error:
+1. Open your **Google Apps Script** project.
+2. Click **Deploy → Manage Deployments**.
+3. Click the **Edit (pencil icon)** on the existing Web App.
+4. Ensure **&#34;Execute as&#34;** is set to **&#34;Me&#34;**.
+5. Set **&#34;Who has access&#34;** to **&#34;Anyone&#34;**.
+6. Click **Deploy** and **use the updated Web App URL**.
+
+---
+
+### **✅ Solution 3: Ensure Correct File Names**
+- Make sure your &#96;form.html&#96; file exists in the Google Apps Script project.
+- Ensure there are **no typos** in &#96;&#34;form.html&#34;&#96; inside &#96;doGet(e)&#96;.
+
+---
+
+### **✅ Solution 4: Clear Cache and Test**
+1. Open your browser in **Incognito Mode**.
+2. Try accessing the Web App URL again.
+3. If it works, clear your **browser cache**.
+
+---
+
+After applying these fixes, your **form.html should load without errors!** 🚀 Let me know if you need help! 😊">
+    <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/Bheemakiranap1.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .card {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background: blue;
+            padding: 40px 0 50px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            position: relative;
+        }
+        .Business-Photo-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-image: url('https://sitebizd.github.io/bizimages/assets/images/Bheemakiranap1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .name {
+            margin-top: 80px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .business-name {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: blue;
+        }
+        .business-address, .business-description {
+            width: 80%;
+            margin: 10px auto;
+			margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .business-address {
+            text-align: center;
+        }
+        .business-description {
+            text-align: left;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .call {
+            background: blue;
+            color: white;
+        }
+        .whatsapp {
+            background: green;
+            color: white;
+        }
+        .download {
+            background: blue;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .social-icons {
+            background: blue;
+            padding: 10px;
+            border-radius: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            width: 20%;
+        }
+        .social-icon i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+		.photo-card {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;  
+        }
+        .photo-card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 4px solid white;
+        }
+        .photo-caption {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: black;
+        }
+		.hairline-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .hairline {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+        .pro-title {
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        @media (max-width: 360px) {
+            .social-icon {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="Business-Photo-1"></div>
+        </div>
+        <div class="name">Bheem patil</div>
+        <div class="business-name">भीमा किराणा </div>
+        <p class="business-address">907, Ravalnath Colony, Ajara</p>
+		
+		<div class="hairline-container">
+        <div class="hairline"></div>
+        <div class="pro-title">Business Description</div>
+        <div class="hairline"></div></div>
+		
+        <p class="business-description">It looks like you sent an empty message. Let me know how I can assist you! The error **&#34;Script function not found: doGet&#34;** occurs when your Google Apps Script **does not have a &#96;doGet(e)&#96; function** or it&#39;s not properly deployed as a Web App.
+
+---
+
+### **✅ Solution 1: Add &#96;doGet(e)&#96; Function in &#96;code.gs&#96;**
+Your **&#96;code.gs&#96;** file must contain a &#96;doGet(e)&#96; function to handle HTTP GET requests.
+
+#### **Example &#96;code.gs&#96; with &#96;doGet(e)&#96;**
+&#96;&#96;&#96;javascript
+function doGet(e) {
+  return HtmlService.createHtmlOutputFromFile(&#39;form.html&#39;)
+      .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+&#96;&#96;&#96;
+This serves your &#96;form.html&#96; page when the Web App URL is accessed.
+
+---
+
+### **✅ Solution 2: Check Deployment**
+If your &#96;doGet(e)&#96; function exists but still gives an error:
+1. Open your **Google Apps Script** project.
+2. Click **Deploy → Manage Deployments**.
+3. Click the **Edit (pencil icon)** on the existing Web App.
+4. Ensure **&#34;Execute as&#34;** is set to **&#34;Me&#34;**.
+5. Set **&#34;Who has access&#34;** to **&#34;Anyone&#34;**.
+6. Click **Deploy** and **use the updated Web App URL**.
+
+---
+
+### **✅ Solution 3: Ensure Correct File Names**
+- Make sure your &#96;form.html&#96; file exists in the Google Apps Script project.
+- Ensure there are **no typos** in &#96;&#34;form.html&#34;&#96; inside &#96;doGet(e)&#96;.
+
+---
+
+### **✅ Solution 4: Clear Cache and Test**
+1. Open your browser in **Incognito Mode**.
+2. Try accessing the Web App URL again.
+3. If it works, clear your **browser cache**.
+
+---
+
+After applying these fixes, your **form.html should load without errors!** 🚀 Let me know if you need help! 😊</p>
+        <div class="buttons"><a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a></div>
+        <div class="buttons">
+            <a href="tel:7498663849" class="button call"><i class="fas fa-phone"></i> Call</a>
+            <a href="https://wa.me/7498663849" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="social-icons">
+                            <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
+                                        <a href="https://gm.com" class="social-icon"><i class="fas fa-map-marker-alt"></i><br>Map</a>
+                                                    <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
+                    </div>
+    </div>
+	 <div class="photo-card" id="photoCard1">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/Bheemakiranap2.jpg" alt="Business Photo 2" onerror="hidePhotoCard(1)">
+        <div class="photo-caption">भीमा किराणा </div>
+    </div>
+    <div class="photo-card" id="photoCard2">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/Bheemakiranap3.jpg" alt="Business Photo 3" onerror="hidePhotoCard(2)">
+        <div class="photo-caption">भीमा किराणा </div>
+    </div>
+    <div class="photo-card" id="photoCard3">
+        <img src="" alt="Business Photo 4" onerror="hidePhotoCard(3)">
+        <div class="photo-caption">भीमा किराणा </div>
+    </div>
+
+    <script>
+        function hidePhotoCard(index) {
+            document.getElementById("photoCard" + index).style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let photoCards = document.querySelectorAll('.photo-card img');
+            photoCards.forEach((img) => {
+                if (img.src && img.src.trim() !== "") {
+                    img.parentElement.style.display = "block"; 
+                }
+            });
+        });
+    </script>
+
+    
+	<script>
+      function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${personName}`,
+          `ORG:${businessName}`,
+          `TEL;TYPE=WORK,VOICE:${mobileNumber}`,
+          `ADR;TYPE=WORK:;;${businessAddress}`,
+          `URL:${websiteLink}`,
+          'END:VCARD'
+        ].join('\n');
+        
+        return 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+      }
+
+      document.getElementById('downloadVCF').addEventListener('click', function() {
+        const personName = "Bheem patil";
+        const businessName = "भीमा किराणा ";
+        const mobileNumber = "7498663849";
+        const businessAddress = "907, Ravalnath Colony, Ajara";
+        const websiteLink = "https:\/\/web.com";
+
+        const vcfData = generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink);
+        const link = document.createElement('a');
+        link.href = vcfData;
+        link.download = 'business.vcf';
+        link.click();
+      });
+    </script>
+</body>
+</html>
