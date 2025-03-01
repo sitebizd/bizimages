@@ -65,7 +65,7 @@
       const rows = data.split('\n').slice(1);
       return rows.map(row => {
         const [profileId, personName, businessNameMarathi, businessNameEnglish, businessDescription, businessAddress] = row.split(',');
-        const title = `${businessNameMarathi} ${businessAddress}<br>${personName}`;
+        const title = `${businessNameMarathi} <br>${personName}`;
         const link = `https://sitebizd.github.io/bizimages/business/${profileId}`;
         return { title, link };
       }).reverse(); // Reverse the order of posts
