@@ -1,211 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Submission Form</title>
-  <script>
-    let uploadedImages = {};
-
-    function generateProfileID() {
-      let businessNameEnglish = document.getElementById("businessNameEnglish").value.trim();
-      if (!businessNameEnglish) return;
-
-      fetch('https://script.google.com/macros/s/AKfycbyF7vxuHfNDHe9Wuw8rsODj9hpYI2Zrt_ZZ9JdFMR59fpg4yi0FwOiuBBF8_k_zYmClXw/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          functionName: 'generateUniqueProfileID',
-          parameters: [businessNameEnglish]
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("profileID").value = data.response;
-      })
-      .catch(error => console.error('Error:', error));
-    }
-
-    function uploadImage(fileInput, imageIndex) {
-      let file = fileInput.files[0];
-      if (!file) return;
-
-      let reader = new FileReader();
-      reader.onload = function(event) {
-        let imageData = event.target.result.split(',')[1];
-        uploadedImages["image" + imageIndex] = { name: file.name, data: imageData };
-        document.getElementById("imageStatus" + imageIndex).innerText = "✔ Uploaded";
-      };
-      reader.readAsDataURL(file);
-      document.getElementById("imageStatus" + imageIndex).innerText = "Uploading...";
-    }
-
-    function submitForm() {
-      let formData = {
-        profileID: document.getElementById("profileID").value.trim(),
-        personName: document.getElementById("personName").value,
-        businessName: document.getElementById("businessName").value,
-        businessNameEnglish: document.getElementById("businessNameEnglish").value,
-        businessDescription: document.getElementById("businessDescription").value,
-        businessAddress: document.getElementById("businessAddress").value,
-        marketArea: document.getElementById("marketArea").value,
-        paymentStatus: document.getElementById("paymentStatus").value,
-        verifiedBadges: document.getElementById("verifiedBadges").value,
-        category1: document.getElementById("category1").value,
-        category2: document.getElementById("category2").value,
-        mobileNumber: document.getElementById("mobileNumber").value,
-        whatsappNumber: document.getElementById("whatsappNumber").value,
-        website: document.getElementById("website").value,
-        facebookPage: document.getElementById("facebookPage").value,
-        youtubeChannel: document.getElementById("youtubeChannel").value,
-        instagram: document.getElementById("instagram").value,
-        googleMap: document.getElementById("googleMap").value,
-        ...uploadedImages
-      };
-
-      document.getElementById("submitBtn").innerText = "Submitting... Please wait";
-      document.getElementById("submitBtn").disabled = true;
-
-      fetch('YOUR_WEB_APP_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          functionName: 'submitForm',
-          parameters: [formData]
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert(data.response.message);
-        document.getElementById("businessForm").reset();
-        uploadedImages = {};
-        document.getElementById("submitBtn").innerText = "Submit";
-        document.getElementById("submitBtn").disabled = false;
-        document.getElementById("generatedProfileID").innerText = "Generated Profile ID: " + data.response.profileID;
-        var openButton = document.createElement("button");
-        openButton.innerText = "Open URL";
-        openButton.onclick = function() {
-          window.open("https://sitebizd.github.io/bizimages/business/" + data.response.profileID, "_blank");
-        };
-        document.getElementById("generatedProfileID").appendChild(openButton);
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  </script>
-  <style>
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #f4f4f4;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .container h2 {
-      text-align: center;
-    }
-    .container label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    .container input,
-    .container textarea,
-    .container button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-    }
-    .image-upload-status {
-      font-size: 12px;
-      color: green;
-    }
-    .profile-id {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Business Submission Form</h2>
-    <form id="businessForm">
-      <label class="required">Business Name</label>
-      <input type="text" id="businessName" required>
-
-      <label class="required">Write Business Name in English</label>
-      <input type="text" id="businessNameEnglish" required onblur="generateProfileID()">
-
-      <label>Profile ID (Auto-Generated)</label>
-      <input type="text" id="profileID" readonly>
-
-      <label class="required">Person Name</label>
-      <input type="text" id="personName" required>
-
-      <label>Business Description</label>
-      <textarea id="businessDescription"></textarea>
-
-      <label class="required">Business Address</label>
-      <input type="text" id="businessAddress" required>
-
-      <label>Market Area</label>
-      <input type="text" id="marketArea">
-
-      <label>Payment Status</label>
-      <input type="text" id="paymentStatus">
-
-      <label>Verified Badges</label>
-      <input type="text" id="verifiedBadges">
-
-      <label>Category 1</label>
-      <input type="text" id="category1">
-
-      <label>Category 2</label>
-      <input type="text" id="category2">
-
-      <label class="required">Mobile Number</label>
-      <input type="tel" id="mobileNumber" required>
-
-      <label class="required">WhatsApp Number</label>
-      <input type="tel" id="whatsappNumber" required>
-
-      <label>Website</label>
-      <input type="url" id="website">
-
-      <label>Facebook Page</label>
-      <input type="url" id="facebookPage">
-
-      <label>YouTube Channel</label>
-      <input type="url" id="youtubeChannel">
-
-      <label>Instagram</label>
-      <input type="url" id="instagram">
-
-      <label>Google Map</label>
-      <input type="url" id="googleMap">
-
-      <label>Business Photo 1</label>
-      <input type="file" id="image1" onchange="uploadImage(this, 1)">
-      <span id="imageStatus1" class="image-upload-status"></span>
-
-      <label>Business Photo 2</label>
-      <input type="file" id="image2" onchange="uploadImage(this, 2)">
-      <span id="imageStatus2" class="image-upload-status"></span>
-
-      <label>Business Photo 3</label>
-      <input type="file" id="image3" onchange="uploadImage(this, 3)">
-      <span id="imageStatus3" class="image-upload-status"></span>
-
-      <label>Business Photo 4</label>
-      <input type="file" id="image4" onchange="uploadImage(this, 4)">
-      <span id="imageStatus4" class="image-upload-status"></span>
-
-      <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
-      <p id="generatedProfileID" class="profile-id"></p>
-    </form>
-  </div>
+    <h2>Business Registration</h2>
+    <div class="container">
+        <iframe src="https://script.google.com/macros/s/AKfycbz8TNIzf4DVURsQAyGSTkAabwkEvLj9CBjwpLTSA3iFdeNewNJn-kJ9GvP3voOGwjl0nQ/exec"></iframe>
+    </div>
 </body>
 </html>
