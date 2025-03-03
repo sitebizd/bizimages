@@ -200,7 +200,7 @@
         <div class="pro-title">Business Description</div>
         <div class="hairline"></div></div>
 		
-        <p class="business-description">Discover the &lt;b&gt;latest trends&lt;/b&gt; in clothing at our store.&lt;br&gt;Shop now for exclusive deals and stylish outfits!</p>
+       <p class="business-description" id="businessDescription"></p>
         <div class="buttons"><a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a></div>
         <div class="buttons">
             <a href="tel:334410888" class="button call"><i class="fas fa-phone"></i> Call</a>
@@ -215,11 +215,11 @@
         <div class="photo-caption">Veer Store</div>
     </div>
     <div class="photo-card" id="photoCard2">
-        <img src="" alt="Business Photo 3" onerror="hidePhotoCard(2)">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/RamDukanp3.jpg" alt="Business Photo 3" onerror="hidePhotoCard(2)">
         <div class="photo-caption">Veer Store</div>
     </div>
     <div class="photo-card" id="photoCard3">
-        <img src="" alt="Business Photo 4" onerror="hidePhotoCard(3)">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/Govindstorenewp4.jpg" alt="Business Photo 4" onerror="hidePhotoCard(3)">
         <div class="photo-caption">Veer Store</div>
     </div>
 
@@ -239,15 +239,12 @@
     </script>
 	
 <script>
-        
-        let businessDescription = "&lt;b&gt;Bold Text&lt;/b&gt;&lt;br&gt;&lt;i&gt;Italic Text&lt;/i&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;";
+  
+  var businessDescription = `'Discover the \x3cb\x3elatest trends\x3c\/b\x3e in clothing at our store.\x3cbr\x3eShop now for exclusive deals and stylish outfits!'`;
 
-        
-        let decodedDescription = new DOMParser().parseFromString(businessDescription, "text/html").body.innerHTML;
-
-        
-        document.querySelector(".business-description").innerHTML = decodedDescription;
-    </script>
+  
+  document.getElementById("businessDescription").innerHTML = businessDescription;
+</script>
     
 	<script>
       function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
