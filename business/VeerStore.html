@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veer Store - Business Details</title>
-    <meta name="description" content="&lt;p&gt;Discover the &lt;strong&gt;latest trends&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; in clothing at our store.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Shop now for exclusive deals and stylish outfits!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;After Fix:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;✔️ Discover the latest trends in clothing at our store.&lt;/p&gt;&lt;p&gt;✔️ &lt;strong&gt;(Line Break Applied) →&lt;/strong&gt; Shop now for exclusive deals and stylish outfits!&lt;/p&gt;&lt;p&gt;This will &lt;strong&gt;remove extra single quotes&lt;/strong&gt; while keeping HTML formatting intact. 🚀 Let me know if you need further tweaks! 😊&lt;/p&gt;">
+    <meta name="description" content="&lt;p&gt;Discover the &lt;strong&gt;latest trends आज  zNEW&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; in clothing at our store.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Shop now for exclusive deals and stylish outfits!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;After Fix:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;✔️ Discover the latest trends in clothing at our store.&lt;/p&gt;&lt;p&gt;✔️ &lt;strong&gt;(Line Break Applied) →&lt;/strong&gt; Shop now for exclusive deals and stylish outfits!&lt;/p&gt;&lt;p&gt;This will &lt;strong&gt;remove extra single quotes&lt;/strong&gt; while keeping HTML formatting intact. 🚀 Let me know if you need further tweaks! 😊&lt;/p&gt;">
     <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/VeerStorep1.jpg">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -242,10 +242,16 @@
 	
 <script>
   
-  var businessDescription = `'\x3cp\x3eDiscover the \x3cstrong\x3elatest trends\x3c\/strong\x3e\x3c\/p\x3e\x3cp\x3e in clothing at our store.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eShop now for exclusive deals and stylish outfits!\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3e\x3cstrong\x3eAfter Fix:\x3c\/strong\x3e\x3c\/p\x3e\x3cp\x3e✔️ Discover the latest trends in clothing at our store.\x3c\/p\x3e\x3cp\x3e✔️ \x3cstrong\x3e\(Line Break Applied\) →\x3c\/strong\x3e Shop now for exclusive deals and stylish outfits!\x3c\/p\x3e\x3cp\x3eThis will \x3cstrong\x3eremove extra single quotes\x3c\/strong\x3e while keeping HTML formatting intact. 🚀 Let me know if you need further tweaks! 😊\x3c\/p\x3e'`;
+  var businessDescription = `'\x3cp\x3eDiscover the \x3cstrong\x3elatest trends आज  zNEW\x3c\/strong\x3e\x3c\/p\x3e\x3cp\x3e in clothing at our store.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eShop now for exclusive deals and stylish outfits!\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3e\x3cstrong\x3eAfter Fix:\x3c\/strong\x3e\x3c\/p\x3e\x3cp\x3e✔️ Discover the latest trends in clothing at our store.\x3c\/p\x3e\x3cp\x3e✔️ \x3cstrong\x3e\(Line Break Applied\) →\x3c\/strong\x3e Shop now for exclusive deals and stylish outfits!\x3c\/p\x3e\x3cp\x3eThis will \x3cstrong\x3eremove extra single quotes\x3c\/strong\x3e while keeping HTML formatting intact. 🚀 Let me know if you need further tweaks! 😊\x3c\/p\x3e'`;
 
   
   businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
+
+  
+  businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
+
+  
+  businessDescription = businessDescription.replace(/<\/p>\s*<p>/g, ' ');
 
   
   document.getElementById("businessDescription").innerHTML = businessDescription;
