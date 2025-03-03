@@ -207,6 +207,7 @@
             <a href="https://wa.me/334410888" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
         <div class="social-icons">
+                            <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
                                                         </div>
     </div>
 	 <div class="photo-card" id="photoCard1">
@@ -239,26 +240,13 @@
 	
 <script>
         
-        let businessDescription = `
-            <b>Bold Text</b><br>
-            <i>Italic Text</i><br>
-            <u>Underlined Text</u><br>
-            <hr>
-            <p>This is a paragraph with <span style="color:blue;">colored text</span>.</p>
-            <ul>
-                <li>Unordered List Item 1</li>
-                <li>Unordered List Item 2</li>
-            </ul>
-            <ol>
-                <li>Ordered List Item 1</li>
-                <li>Ordered List Item 2</li>
-            </ol>
-            <blockquote>This is a blockquote.</blockquote>
-            <p>New lines<br>should work properly.</p>
-        `;
+        let businessDescription = "&lt;b&gt;Bold Text&lt;/b&gt;&lt;br&gt;&lt;i&gt;Italic Text&lt;/i&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;";
 
-        // Insert HTML content into the paragraph element
-        document.querySelector(".business-description").innerHTML = businessDescription;
+        
+        let decodedDescription = new DOMParser().parseFromString(businessDescription, "text/html").body.innerHTML;
+
+        
+        document.querySelector(".business-description").innerHTML = decodedDescription;
     </script>
     
 	<script>
@@ -282,7 +270,7 @@
         const businessName = "Veer Store";
         const mobileNumber = "334410888";
         const businessAddress = "907, Ravalnath Colony, Ajara";
-        const websiteLink = "";
+        const websiteLink = "https:\/\/web.com";
 
         const vcfData = generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink);
         const link = document.createElement('a');
