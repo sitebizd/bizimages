@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Marathi Web Services - Business Details</title>
-    <meta name="description" content="हेल्थ Let me know if you want to add more fields, validations, or design improvements! नवीन ">
+    <meta name="description" content="&lt;p&gt;Find the &lt;/p&gt;&lt;p&gt;&lt;strong&gt;best deals&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; on gadgets and appliances.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your one-stop shop for all electronics!&lt;/p&gt;">
     <meta property="og:image" content="">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -200,7 +200,7 @@
         <div class="pro-title">Business Description</div>
         <div class="hairline"></div></div>
 		
-        <p class="business-description">हेल्थ Let me know if you want to add more fields, validations, or design improvements! नवीन </p>
+       <p class="business-description" id="businessDescription"></p>
         <div class="buttons"><a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a></div>
         <div class="buttons">
             <a href="tel:7498663848" class="button call"><i class="fas fa-phone"></i> Call</a>
@@ -239,7 +239,22 @@
             });
         });
     </script>
+	
+<script>
+  
+  var businessDescription = `'\x3cp\x3eFind the \x3c\/p\x3e\x3cp\x3e\x3cstrong\x3ebest deals\x3c\/strong\x3e\x3c\/p\x3e\x3cp\x3e on gadgets and appliances.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eYour one-stop shop for all electronics!\x3c\/p\x3e'`;
 
+  
+  businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
+
+  
+  businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
+
+ 
+
+  
+  document.getElementById("businessDescription").innerHTML = businessDescription;
+</script>
     
 	<script>
       function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
