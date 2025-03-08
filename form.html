@@ -36,23 +36,7 @@
         .reload-button:hover {
             background-color: #45a049;
         }
-	  .loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+	
 
   </style>
 </head>
@@ -60,15 +44,10 @@
     <button onclick="location.reload();" style="width: 100%; background-color: black; color: white; padding: 15px 0; text-align: center; border: none; font-size: 16px; font-weight: bold; cursor: pointer; text-transform: uppercase;">
         <i class="fas fa-sync-alt"></i> Reload Page
     </button>
-	<div id="loader" class="loader">
+	
   <!-- Replace the URL below with your Google Web App URL -->
   <iframe src="https://script.google.com/macros/s/AKfycbz3Yei7CsBZHzRJKVoJ9eQwh-ITOifva2GeoYOUaeYSdm4z--nyO5oxODQga2f0-vff/exec"></iframe>
 
-<script>
-function hideLoader() {
-  document.getElementById("loader").style.display = "none";
-}
-		
-</script>
+
 </body>
 </html>
