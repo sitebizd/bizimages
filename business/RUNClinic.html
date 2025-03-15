@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUN Clinic  - Business Details</title>
-    <meta name="description" content="चला तर मग वाट कसली पाहताय आजचं तुमचा फोटोग्राफर निवडा.&lt;br&gt;Satish &lt;p&gt;111&lt;br&gt;55">
+    <meta name="description" content="चला तर मग वाट कसली पाहताय तुमचा फोटोग्राफर निवडा.&lt;br&gt;Satish &lt;p&gt;111&lt;br&gt;55">
     <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/RUNClinicp1.jpg">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -289,25 +289,19 @@
 	
 <script>
   
-  google.script.run.withSuccessHandler(function(businessDescription) {
-    
+  var businessDescription = `'चला तर मग वाट कसली पाहताय तुमचा फोटोग्राफर निवडा.\x3cbr\x3eSatish \x3cp\x3e111\x3cbr\x3e55'`;
 
-    
-    businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
+  
+  businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
 
-    
-    var textarea = document.createElement('textarea');
-    textarea.innerHTML = businessDescription;
-    businessDescription = textarea.value;
+  
+  businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '<br>');
 
-    
-    businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
+ 
 
-    
-    document.getElementById("businessDescription").innerHTML = businessDescription;
-  }).getBusinessDescription();
+  
+  document.getElementById("businessDescription").innerHTML = businessDescription;
 </script>
-
     
 	<script>
       function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
