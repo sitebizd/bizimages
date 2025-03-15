@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUN Clinic  - Business Details</title>
-    <meta name="description" content="चला तर मग वाट कसली पाहताय आजचं तुमचा फोटोग्राफर निवडा.&lt;br&gt;ok">
+    <meta name="description" content="चला तर मग वाट कसली पाहताय आजचं तुमचा फोटोग्राफर निवडा.&lt;br&gt;Newbor">
     <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/RUNClinicp1.jpg">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -289,33 +289,24 @@
 	
 <script>
 
-var businessDescription = `'चला तर मग वाट कसली पाहताय आजचं तुमचा फोटोग्राफर निवडा.\x3cbr\x3eok'`;
+var businessDescription = `'चला तर मग वाट कसली पाहताय आजचं तुमचा फोटोग्राफर निवडा.\x3cbr\x3eNewbor'`;
 
 
-function decodeHTMLEntities(text) {
-    var textarea = document.createElement("textarea");
-    textarea.innerHTML = text;
-    return textarea.value;
-}
-businessDescription = decodeHTMLEntities(businessDescription);
+businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
 
 
-businessDescription = businessDescription.replace(/<p>\s*(<br>\s*)*<\/p>/g, '');
+var textarea = document.createElement('textarea');
+textarea.innerHTML = businessDescription;
+businessDescription = textarea.value;
 
 
-businessDescription = businessDescription.replace(/\\x3c|\\x3e/g, function (match) {
-    return match === "\\x3c" ? "<" : ">";
-});
+businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
 
 
-businessDescription = businessDescription.trim();
+businessDescription = businessDescription.replace(/<p>\s*<\/p>/g, '');
 
 
 document.getElementById("businessDescription").innerHTML = businessDescription;
-
-
-console.log("Decoded and cleaned business description:", businessDescription);
-
 
 </script>
     
