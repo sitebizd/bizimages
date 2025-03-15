@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Clinic - Business Details</title>
+    <meta name="description" content="&lt;p&gt;आमचे हॉस्पिटल आपल्या कुटुंबाच्या आरोग्यासाठी सर्वोत्तम सेवा प्रदान करते. आमच्याकडे अनुभवी आणि कुशल डॉक्टर आहेत जे आपल्याला सर्व प्रकारच्या आरोग्य समस्यांमध्ये मदत करू शकतात.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;आमच्या हॉस्पिटलमध्ये ताप, सर्दी, खोकला, डोकेदुखी, पोटदुखी, अतिसार, उलट्या, मूळव्याध, बद्धकोष्ठता, मुतखडा, कावीळ, टायफॉइड, डेंग्यू, मलेरिया, अंगदुखी, सांधेदुखी, अस्थमा, लठ्ठपणा, उच्च रक्तदाब, मधुमेह अशा अनेक आरोग्य समस्यांवर उपचार केले जातात.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Dr. (Full Name)&lt;/p&gt;&lt;p&gt;Qulification - ( M.D. / M.B.B.S. / B.A.M.S. / B.H.M.S. etc)&lt;/p&gt;&lt;p&gt;Registration No. (Number)&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Deep Kumar&lt;/p&gt;&lt;p&gt;Line 2&lt;/p&gt;">
+    <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/DeepClinicp1.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .card {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background: blue;
+            padding: 40px 0 50px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            position: relative;
+        }
+        .Business-Photo-1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-image: url('https://sitebizd.github.io/bizimages/assets/images/DeepClinicp1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .name {
+            margin-top: 80px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .business-name {
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: blue;
+        }
+        .business-address, .business-description {
+            width: 80%;
+            margin: 10px auto;
+			margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .business-address {
+            text-align: center;
+        }
+        .business-description {
+            text-align: left;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .call {
+            background: blue;
+            color: white;
+        }
+        .whatsapp {
+            background: green;
+            color: white;
+        }
+        .download {
+            background: blue;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .social-icons {
+            background: blue;
+            padding: 10px;
+            border-radius: 15px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            width: 20%;
+        }
+        .social-icon i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+		.photo-card {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;  
+        }
+        .photo-card img {
+            width: 100%;
+            border-radius: 15px;
+            border: 4px solid white;
+        }
+        .photo-caption {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: black;
+        }
+		.hairline-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .hairline {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 10px;
+        }
+        .pro-title {
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+		.container {
+		width: 90%;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+		.festival-banner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .festival-banner img {
+      width: 100%;
+      border-radius: 8px;
+    }
+        @media (max-width: 360px) {
+            .social-icon {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="Business-Photo-1"></div>
+        </div>
+        <div class="name">Deep Kumar</div>
+        <div class="business-name">Deep Clinic</div>
+        <p class="business-address">907, Ravalnath Colony, Ajara</p>
+		
+		<div class="hairline-container">
+        <div class="hairline"></div>
+        <div class="pro-title">Business Description</div>
+        <div class="hairline"></div></div>
+		
+       <p class="business-description" id="businessDescription"></p>
+        <div class="buttons"><a href="#" id="downloadVCF" class="download"><i class="fas fa-download"></i> Download VCF</a></div>
+        <div class="buttons">
+            <a href="tel:8544444444" class="button call"><i class="fas fa-phone"></i> Call</a>
+            <a href="https://wa.me/8544444444" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="social-icons">
+                            <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
+                                        <a href="https://gm.com" class="social-icon"><i class="fas fa-map-marker-alt"></i><br>Map</a>
+                                            </div>
+    </div>
+	 <div class="photo-card" id="photoCard1">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/DeepClinicp2.jpg" alt="Business Photo 2" onerror="hidePhotoCard(1)">
+        <div class="photo-caption">Deep Clinic</div>
+    </div>
+    <div class="photo-card" id="photoCard2">
+        <img src="" alt="Business Photo 3" onerror="hidePhotoCard(2)">
+        <div class="photo-caption">Deep Clinic</div>
+    </div>
+    <div class="photo-card" id="photoCard3">
+        <img src="" alt="Business Photo 4" onerror="hidePhotoCard(3)">
+        <div class="photo-caption">Deep Clinic</div>
+    </div>
+	
+	<div class="card">
+        <div class="dropdown">
+            <select id="festivalSelect" onchange="updateFestivalBanner()">
+                <option value="" disabled selected>Select a Festival</option>
+                <option value="NewYear|https://sitebizd.github.io/bizimages/assets/images/vc101p4.jpg|#FF0000">New Year</option>
+                <option value="MakarSankranti|https://sitebizd.github.io/bizimages/assets/images/vc101p3.jpg|#FFFF00">Makar Sankranti</option>
+                <option value="RepublicDay|https://sitebizd.github.io/bizimages/assets/images/vc101p2.jpg|#0000FF">Republic Day</option>
+                <option value="GaneshChaturthi|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F9%20September%2FGaneshChaturthi.jpg?alt=media&amp;token=6f12954e-2b25-41e2-940a-86c6a4c8edd3|#FFA500">Ganesh Chaturthi</option>
+                <option value="Dasara|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F10%20October%2FDussehra.jpg?alt=media&amp;token=a813271d-d54a-4835-a045-e6c46ab62dd5|#800080">Dasara</option>
+                <option value="Diwali|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F11%20November%2FDiwali.jpg?alt=media&amp;token=a9703c9b-0074-41fa-8b59-d2211ffd2179|#FFD700">Diwali</option>
+            </select>
+
+   </div>
+
+        <div id="festivalBanner" class="festival-banner">
+            <img id="festivalImage" src="" alt="Festival Image">
+            <div class="festival-details">
+                <h2>Deep Clinic</h2>
+                <h3>Deep Kumar</h3>
+                <strong>Address : 907, Ravalnath Colony, Ajara</strong><br>
+                <strong><i class="fas fa-phone icon"></i>  8544444444</strong>
+            </div>
+        </div>
+
+        <button id="saveBanner" class="button" onclick="saveBannerAsPng()">Save Banner</button>
+    </div>
+
+    <script>
+        function hidePhotoCard(index) {
+            document.getElementById("photoCard" + index).style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let photoCards = document.querySelectorAll('.photo-card img');
+            photoCards.forEach((img) => {
+                if (img.src && img.src.trim() !== "") {
+                    img.parentElement.style.display = "block"; 
+                }
+            });
+        });
+    </script>
+	
+<script>
+  
+  var businessDescription = `'\x3cp\x3eआमचे हॉस्पिटल आपल्या कुटुंबाच्या आरोग्यासाठी सर्वोत्तम सेवा प्रदान करते. आमच्याकडे अनुभवी आणि कुशल डॉक्टर आहेत जे आपल्याला सर्व प्रकारच्या आरोग्य समस्यांमध्ये मदत करू शकतात.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eआमच्या हॉस्पिटलमध्ये ताप, सर्दी, खोकला, डोकेदुखी, पोटदुखी, अतिसार, उलट्या, मूळव्याध, बद्धकोष्ठता, मुतखडा, कावीळ, टायफॉइड, डेंग्यू, मलेरिया, अंगदुखी, सांधेदुखी, अस्थमा, लठ्ठपणा, उच्च रक्तदाब, मधुमेह अशा अनेक आरोग्य समस्यांवर उपचार केले जातात.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eDr. \(Full Name\)\x3c\/p\x3e\x3cp\x3eQulification - \( M.D. \/ M.B.B.S. \/ B.A.M.S. \/ B.H.M.S. etc\)\x3c\/p\x3e\x3cp\x3eRegistration No. \(Number\)\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eDeep Kumar\x3c\/p\x3e\x3cp\x3eLine 2\x3c\/p\x3e'`;
+
+  
+  businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
+
+  
+  businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
+
+ 
+
+  
+  document.getElementById("businessDescription").innerHTML = businessDescription;
+</script>
+    
+	<script>
+      function generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink) {
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${personName}`,
+          `ORG:${businessName}`,
+          `TEL;TYPE=WORK,VOICE:${mobileNumber}`,
+          `ADR;TYPE=WORK:;;${businessAddress}`,
+          `URL:${websiteLink}`,
+          'END:VCARD'
+        ].join('\n');
+        
+        return 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+      }
+
+      document.getElementById('downloadVCF').addEventListener('click', function() {
+        const personName = "Deep Kumar";
+        const businessName = "Deep Clinic";
+        const mobileNumber = "8544444444";
+        const businessAddress = "907, Ravalnath Colony, Ajara";
+        const websiteLink = "https:\/\/web.com";
+
+        const vcfData = generateVCF(personName, businessName, mobileNumber, businessAddress, websiteLink);
+        const link = document.createElement('a');
+        link.href = vcfData;
+        link.download = 'business.vcf';
+        link.click();
+      });
+	  
+	  
+	function updateFestivalBanner() {
+            const festivalSelect = document.getElementById('festivalSelect');
+            const selectedValue = festivalSelect.value;
+            if (selectedValue) {
+                const [festivalName, festivalImageUrl, backgroundColor] = selectedValue.split('|');
+                document.getElementById('festivalImage').src = festivalImageUrl;
+                document.getElementById('festivalBanner').style.display = 'block';
+                document.getElementById('saveBanner').style.display = 'block';
+                document.getElementById('festivalBanner').style.backgroundColor = backgroundColor; 
+            } else {
+                document.getElementById('festivalBanner').style.backgroundColor = ''; 
+            }
+        }
+
+  function saveBannerAsPng() {
+            const banner = document.getElementById('festivalBanner');
+            
+            if (typeof html2canvas === 'undefined') {
+                console.error("html2canvas is not loaded. Please include it in your HTML.");
+                return;
+            }
+
+            html2canvas(banner, { 
+    useCORS: true,
+    scale: 2 
+}).then(function(canvas) { 
+                canvas.toBlob(function(blob) {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'festival_banner.png';
+                    link.click();
+                });
+            }).catch(error => {
+                console.error("Error capturing banner:", error);
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+	</script> 
+</body>
+</html>
