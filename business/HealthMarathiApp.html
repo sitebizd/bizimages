@@ -213,9 +213,11 @@
         <div class="header">
             <div class="Business-Photo-1"></div>
         </div>
-        <div class="name">Satish Upalkar</div>
+        <div class="name">Dr. Satish Upalkar</div>
         <div class="business-name">Health Marathi App</div>
         <p class="business-address">907, Ravalnath Colony, Ajara</p>
+            
+    <div id="bizPlus"></div>
 		
 		<div class="hairline-container">
         <div class="hairline"></div>
@@ -230,7 +232,8 @@
         </div>
         <div class="social-icons">
                             <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
-                                                                <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
+                                                    <a href="https://yt.com" class="social-icon"><i class="fab fa-youtube"></i><br>YouTube</a>
+                                        <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
                     </div>
     </div>
 	 <div class="photo-card" id="photoCard1">
@@ -264,7 +267,7 @@
             <img id="festivalImage" src="" alt="Festival Image">
             <div class="festival-details">
                 <h2>Health Marathi App</h2>
-                <h3>Satish Upalkar</h3>
+                <h3>Dr. Satish Upalkar</h3>
                 <strong>Address : 907, Ravalnath Colony, Ajara</strong><br>
                 <strong><i class="fas fa-phone icon"></i>  7498663848</strong>
             </div>
@@ -290,18 +293,21 @@
 	
 <script>
   
-  var businessDescription = `'\x3cp\x3eआमचे हॉस्पिटल आपल्या कुटुंबाच्या आरोग्यासाठी सर्वोत्तम सेवा प्रदान करते. आमच्याकडे अनुभवी आणि कुशल डॉक्टर आहेत जे आपल्याला सर्व प्रकारच्या आरोग्य समस्यांमध्ये मदत करू शकतात.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eआमच्या हॉस्पिटलमध्ये ताप, सर्दी, खोकला, डोकेदुखी, पोटदुखी, अतिसार, उलट्या, मूळव्याध, बद्धकोष्ठता, मुतखडा, कावीळ, टायफॉइड, डेंग्यू, मलेरिया, अंगदुखी, सांधेदुखी, अस्थमा, लठ्ठपणा, उच्च रक्तदाब, मधुमेह अशा अनेक आरोग्य समस्यांवर उपचार केले जातात.\x3c\/p\x3e\x3cp\x3e\x3cbr\x3e\x3c\/p\x3e\x3cp\x3eDr. \(Full Name\)\x3c\/p\x3e\x3cp\x3eQualification - \( M.D. \/ M.B.B.S. \/ B.A.M.S. \/ B.H.M.S. etc\)\x3c\/p\x3e\x3cp\x3eRegistration No. \(Number\)\x3c\/p\x3e'`;
+        var businessDescription = `'\x3cp\x3eText example\x3c\/p\x3e'`;
 
-  
-  businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
+        
+        businessDescription = businessDescription.replace(/^'(.*)'$/, "$1");
 
-  
-  businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
+        
+        businessDescription = businessDescription.replace(/\\x([0-9A-Fa-f]{2})/g, function(match, hex) {
+            return String.fromCharCode(parseInt(hex, 16));
+        });
 
- 
+        
+        businessDescription = businessDescription.replace(/<p>\s*<br>\s*<\/p>/g, '');
 
-  
-  document.getElementById("businessDescription").innerHTML = businessDescription;
+        
+        document.getElementById("bizPlus").innerHTML = businessDescription;
 </script>
     
 	<script>
@@ -321,7 +327,7 @@
       }
 
       document.getElementById('downloadVCF').addEventListener('click', function() {
-        const personName = "Satish Upalkar";
+        const personName = "Dr. Satish Upalkar";
         const businessName = "Health Marathi App";
         const mobileNumber = "7498663848";
         const businessAddress = "907, Ravalnath Colony, Ajara";
