@@ -220,6 +220,21 @@
       display: none;
       margin-top: 20px;
     }
+	
+	.non-clickable {
+    background-color: black;  
+    border-radius: 10px;  
+    padding: 5px 10px;  
+    display: inline-block;  
+    pointer-events: none;  
+	color: white;  
+	margin-top: 10px !important;  
+}
+  }
+  .non-clickable .icon {
+  color: white;  
+    margin-right: 5px;  
+  }
         @media (max-width: 360px) {
             .social-icon {
                 width: 45%;
@@ -249,7 +264,8 @@
         </div>
         <div class="social-icons">
                             <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
-                                                    <a href="https://yt.com" class="social-icon"><i class="fab fa-youtube"></i><br>YouTube</a>
+                                        <a href="https://bm.com" class="social-icon"><i class="fas fa-map-marker-alt"></i><br>Map</a>
+                                        <a href="https://yt.com" class="social-icon"><i class="fab fa-youtube"></i><br>YouTube</a>
                                         <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
                     </div>
     </div>
@@ -285,8 +301,8 @@
             <div class="festival-details">
                 <h2>Nio Clinic</h2>
                 <h3>Dr Kartiki Patil</h3>
-                <strong>Address : Main Rd, Ajara</strong><br>
-                <strong><i class="fas fa-phone icon"></i>  8577777777</strong>
+                <strong>Address : Main Rd, Ajara</strong>
+                <strong class="non-clickable"><i class="fas fa-phone icon"></i>  8577777777</strong>
             </div>
         </div>
 
