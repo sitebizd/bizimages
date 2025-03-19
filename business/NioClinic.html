@@ -188,18 +188,37 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-		.festival-banner {
-      display: none;
-      text-align: center;
+    .festival-banner {
       margin-top: 20px;
       padding: 20px;
       background: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 8px;
-    }
+      text-align: center;
+      display: none;
+      position: relative;
+    transition: background-color 0.3s ease;  
+        }
     .festival-banner img {
       width: 100%;
       border-radius: 8px;
+    }
+    .festival-details {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .festival-details h2,
+    .festival-details h3,
+    .festival-details strong {
+      display: block;
+      margin: 5px 0;
+    }
+    .festival-details .icon {
+      margin-right: 5px;
+    }
+    #saveBanner {
+      display: none;
+      margin-top: 20px;
     }
         @media (max-width: 360px) {
             .social-icon {
@@ -230,7 +249,8 @@
         </div>
         <div class="social-icons">
                             <a href="https://web.com" class="social-icon"><i class="fas fa-globe"></i><br>Website</a>
-                                                                <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
+                                                    <a href="https://yt.com" class="social-icon"><i class="fab fa-youtube"></i><br>YouTube</a>
+                                        <a href="https://fb.com" class="social-icon"><i class="fab fa-facebook"></i><br>Facebook</a>
                     </div>
     </div>
 	 <div class="photo-card" id="photoCard1">
@@ -242,7 +262,7 @@
         <div class="photo-caption">Nio Clinic</div>
     </div>
     <div class="photo-card" id="photoCard3">
-        <img src="" alt="Business Photo 4" onerror="hidePhotoCard(3)">
+        <img src="https://sitebizd.github.io/bizimages/assets/images/A1Photop4.jpg" alt="Business Photo 4" onerror="hidePhotoCard(3)">
         <div class="photo-caption">Nio Clinic</div>
     </div>
 	
