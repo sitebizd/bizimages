@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Sports Academy  - Business Details</title>
     <meta name="description" content="&lt;p&gt;&lt;strong&gt;तुमच्या सेवेत २४ तास!&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;सर्व प्रकारची औषधे उपलब्ध&lt;/li&gt;&lt;li&gt;जनरल मेडिसिन, सर्जिकल आयटम्स, आणि अधिक&lt;/li&gt;&lt;li&gt;डॉक्टरांच्या प्रिस्क्रिप्शननुसार औषधे दिली जातील.&lt;/li&gt;&lt;li&gt;घरोघरी औषध पोहोचवण्याची सोय उपलब्ध.&lt;/li&gt;&lt;li&gt;योग्य दरात, खात्रीशीर औषधे.&lt;/li&gt;&lt;li&gt;ज्येष्ठ नागरिकांसाठी विशेष सवलत.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;आमच्या येथे खालील सेवा उपलब्ध:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;ब्लड प्रेशर तपासणी&lt;/li&gt;&lt;li&gt;मधुमेह तपासणी&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;">
-    <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/RohitSportsAcademyp1.jpg">
+    <meta property="og:image" content="">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -38,7 +38,7 @@
             height: 100px;
             border-radius: 50%;
             border: 4px solid white;
-            background-image: url('https://sitebizd.github.io/bizimages/assets/images/RohitSportsAcademyp1.jpg');
+            background-image: url('');
             background-size: cover;
             background-position: center;
             position: absolute;
@@ -141,7 +141,7 @@
         }
 		.photo-card {
             width: 90%;
-            max-width: 400px;
+            max-width: 800px;
             background: white;
             margin: 20px auto;
             padding: 15px;
@@ -188,19 +188,53 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-		.festival-banner {
-      display: none;
-      text-align: center;
+    .festival-banner {
       margin-top: 20px;
       padding: 20px;
       background: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 8px;
-    }
+      text-align: center;
+      display: none;
+      position: relative;
+    transition: background-color 0.3s ease;  
+        }
     .festival-banner img {
       width: 100%;
       border-radius: 8px;
     }
+    .festival-details {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .festival-details h2,
+    .festival-details h3,
+    .festival-details strong {
+      display: block;
+      margin: 5px 0;
+    }
+    .festival-details .icon {
+      margin-right: 5px;
+    }
+    #saveBanner {
+      display: none;
+      margin-top: 20px;
+    }
+	
+	.non-clickable {
+    background-color: black;  
+    border-radius: 10px;  
+    padding: 5px 10px;  
+    display: inline-block;  
+    pointer-events: none;  
+	color: white;  
+	margin-top: 10px !important;  
+}
+  }
+  .non-clickable .icon {
+  color: white;  
+    margin-right: 5px;  
+  }
         @media (max-width: 360px) {
             .social-icon {
                 width: 45%;
@@ -247,7 +281,7 @@
         <div class="photo-caption">Rohit Sports Academy </div>
     </div>
 	
-	<div class="container">
+	<div class="card">
         <div class="dropdown">
             <select id="festivalSelect" onchange="updateFestivalBanner()">
                 <option value="" disabled selected>Select a Festival</option>
@@ -266,8 +300,8 @@
             <div class="festival-details">
                 <h2>Rohit Sports Academy </h2>
                 <h3>Rohit Sharma </h3>
-                <strong>907, Ravalnath Colony, Ajara</strong>
-                <strong><i class="fas fa-phone icon"></i>8822222555</strong>
+                <strong>Address : 907, Ravalnath Colony, Ajara</strong>
+                <strong class="non-clickable"><i class="fas fa-phone icon"></i>  8822222555</strong>
             </div>
         </div>
 
