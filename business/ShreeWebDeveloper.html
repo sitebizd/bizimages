@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Web Developer  - Business Details</title>
+    <title>Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स - Business Details</title>
     <meta name="description" content="&lt;p&gt;तुमच्या व्यवसायासाठी आकर्षक आणि प्रभावी वेबसाइट तयार करा, तेही माफक दरात .. &lt;/p&gt;&lt;p&gt;आजच्या डिजिटल युगात, आपल्या व्यवसायासाठी एक मजबूत ऑनलाइन उपस्थिती असणे आवश्यक आहे. आपली वेबसाइट ही तुमच्या ब्रँडची पहिली छाप आहे आणि ती तुमच्या ग्राहकांना आकर्षित करण्यासाठी आणि त्यांना तुमच्याशी जोडण्यासाठी महत्त्वाची आहे.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;आमच्याकडे अनुभवी वेब डिझाइनर आणि डेव्हलपर्सची टीम असून आम्ही आपल्या गरजेनुसार उत्तम वेबसाइट बनवून देऊ.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt; ह्या सेवा आम्ही देतो -&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; - कस्टम वेब डिझाइन&lt;/p&gt;&lt;p&gt; - रेस्पॉन्सिव्ह वेबसाइट&lt;/p&gt;&lt;p&gt; - सर्च इंजिन ऑप्टिमायझेशन (SEO) सेवा &lt;/p&gt;&lt;p&gt; - ई-कॉमर्स वेबसाइट&lt;/p&gt;&lt;p&gt; - वेबसाइट सुरक्षा आणि देखभाल&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;आजच आमच्याशी संपर्क साधा आणि आपल्या स्वप्नातील वेबसाइटबद्दल अधिक जाणून घ्या!&lt;/p&gt;">
     <meta property="og:image" content="https://sitebizd.github.io/bizimages/assets/images/ShreeWebDeveloperp1.jpg">
 
@@ -188,30 +188,81 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
+    .card.vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+    }
+
+    .dropdown {
+        margin-bottom: 15px;
+        width: 100%;  
+    }
+
+    #festivalSelect {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+
     .festival-banner {
-      margin-top: 20px;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      text-align: center;
-      display: none;
-      position: relative;
-    transition: background-color 0.3s ease;  
-        }
+        position: relative;
+        width: 100%;
+        height: auto;
+        background-color: #f0f0f0;
+        border-radius: 0px;
+        overflow: hidden;
+		padding: 15px;
+        margin-bottom: 10px;
+        display: none;
+        flex-direction: column;  
+        align-items: center;  
+        text-align: center;  
+    }
+
+    .festival-banner.vertical {
+        align-items: center;  
+    }
+
     .festival-banner img {
-      width: 100%;
-      border-radius: 8px;
+        max-width: 100%;  
+        height: auto;
+        margin-bottom: 10px;  
+        border-radius: 0px 0px 0px 0px;  
+        display: block;
     }
+
     .festival-details {
-      text-align: center;
-      margin-top: 10px;
+        padding: 15px;
+        width: 100%;  
+        box-sizing: border-box;  
     }
+
     .festival-details h2,
     .festival-details h3,
     .festival-details strong {
-      display: block;
-      margin: 5px 0;
+        margin: 5px 0;
+    }
+
+    .buttonFB {
+        padding: 10px 15px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        display: none;
+        width: 100%;
+        box-sizing: border-box;  
+    }
+
+    .buttonFB:hover {
+        background-color: black;
+    }
+
+    .icon {
+        margin-right: 5px;
     }
     .festival-details .icon {
       margin-right: 5px;
@@ -248,7 +299,7 @@
             <div class="Business-Photo-1"></div>
         </div>
         <div class="name">Govind Desai</div>
-        <div class="business-name">Shree Web Developer </div>
+        <div class="business-name">Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स</div>
         <p class="business-address">Near Bus Stop, आजरा </p>
 		
 		<div class="hairline-container">
@@ -268,35 +319,36 @@
     </div>
 	 <div class="photo-card" id="photoCard1">
         <img src="https://sitebizd.github.io/bizimages/assets/images/ShreeWebDeveloperp2.jpg" alt="Business Photo 2" onerror="hidePhotoCard(1)">
-        <div class="photo-caption">Shree Web Developer </div>
+        <div class="photo-caption">Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स</div>
     </div>
     <div class="photo-card" id="photoCard2">
         <img src="https://sitebizd.github.io/bizimages/assets/images/ShreeWebDeveloperp3.jpg" alt="Business Photo 3" onerror="hidePhotoCard(2)">
-        <div class="photo-caption">Shree Web Developer </div>
+        <div class="photo-caption">Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स</div>
     </div>
     <div class="photo-card" id="photoCard3">
         <img src="https://sitebizd.github.io/bizimages/assets/images/ShreeWebDeveloperp4.jpg" alt="Business Photo 4" onerror="hidePhotoCard(3)">
-        <div class="photo-caption">Shree Web Developer </div>
+        <div class="photo-caption">Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स</div>
     </div>
 	
-	<div class="card">
-        <div class="dropdown">
-            <select id="festivalSelect" onchange="updateFestivalBanner()">
-                <option value="" disabled selected>Select a Festival</option>
-                <option value="NewYear|https://sitebizd.github.io/bizimages/assets/images/vc101p4.jpg|#FF0000">New Year</option>
-                <option value="MakarSankranti|https://sitebizd.github.io/bizimages/assets/images/vc101p3.jpg|#FFFF00">Makar Sankranti</option>
-                <option value="RepublicDay|https://sitebizd.github.io/bizimages/assets/images/vc101p2.jpg|#0000FF">Republic Day</option>
-                <option value="GaneshChaturthi|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F9%20September%2FGaneshChaturthi.jpg?alt=media&amp;token=6f12954e-2b25-41e2-940a-86c6a4c8edd3|#FFA500">Ganesh Chaturthi</option>
-                <option value="Dasara|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F10%20October%2FDussehra.jpg?alt=media&amp;token=a813271d-d54a-4835-a045-e6c46ab62dd5|#800080">Dasara</option>
-                <option value="Diwali|https://firebasestorage.googleapis.com/v0/b/bizplus-b7a03.appspot.com/o/Festival%2F11%20November%2FDiwali.jpg?alt=media&amp;token=a9703c9b-0074-41fa-8b59-d2211ffd2179|#FFD700">Diwali</option>
-            </select>
-
-   </div>
+	<div class="card vertical">
+    <div class="dropdown">
+        <select id="festivalSelect" onchange="updateFestivalBanner()">
+            <option value="" disabled selected>Select a Festival</option>
+            <option value="NewYear|https://sitebizd.github.io/bizimages/assets/images/NitinStorep2.jpg|#FF0000|Happy New Year|Greeting From">New Year</option>
+            <option value="MakarSankranti|https://example.com/MakarSankranti.jpg|#FFFF00|Happy Makar Sankranti|Warm Wishes">Makar Sankranti</option>
+            <option value="RepublicDay|https://example.com/Republic.jpg|#0000FF|Happy Republic Day|Jai Hind">Republic Day</option>
+            <option value="GaneshChaturthi|https://example.com/Chaturthi.jpg|#FFA500|Happy Ganesh Chaturthi|Blessings of Lord Ganesha">Ganesh Chaturthi</option>
+            <option value="Dasara|https://example.com/Dasara.jpg|#800080|Happy Dasara|Vijayadashami Greetings">Dasara</option>
+            <option value="Diwali|https://example.com/Diwali.jpg|#FFD700|Happy Diwali|Shubh Deepavali">Diwali</option>
+        </select>
+    </div>
 
         <div id="festivalBanner" class="festival-banner">
             <img id="festivalImage" src="" alt="Festival Image">
             <div class="festival-details">
-                <h2>Shree Web Developer </h2>
+			<h3 id="messageLine1"></h3>
+            <strong id="messageLine2"></strong>
+                <h2>Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स</h2>
                 <h3>Govind Desai</h3>
                 <strong>Address : Near Bus Stop, आजरा </strong>
                 <strong class="non-clickable"><i class="fas fa-phone icon"></i>  7496666648</strong>
@@ -355,7 +407,7 @@
 
       document.getElementById('downloadVCF').addEventListener('click', function() {
         const personName = "Govind Desai";
-        const businessName = "Shree Web Developer ";
+        const businessName = "Shree Web Developer वेब डिझाइनर आणि डेव्हलपर्स";
         const mobileNumber = "7496666648";
         const businessAddress = "Near Bus Stop, आजरा ";
         const websiteLink = "";
@@ -369,41 +421,50 @@
 	  
 	  
 	function updateFestivalBanner() {
-            const festivalSelect = document.getElementById('festivalSelect');
-            const selectedValue = festivalSelect.value;
-            if (selectedValue) {
-                const [festivalName, festivalImageUrl, backgroundColor] = selectedValue.split('|');
-                document.getElementById('festivalImage').src = festivalImageUrl;
-                document.getElementById('festivalBanner').style.display = 'block';
-                document.getElementById('saveBanner').style.display = 'block';
-                document.getElementById('festivalBanner').style.backgroundColor = backgroundColor; 
-            } else {
-                document.getElementById('festivalBanner').style.backgroundColor = ''; 
-            }
+        const festivalSelect = document.getElementById('festivalSelect');
+        const selectedValue = festivalSelect.value;
+        if (selectedValue) {
+            const [festivalName, festivalImageUrl, backgroundColor, message1, message2] = selectedValue.split('|');
+            document.getElementById('festivalImage').src = festivalImageUrl;
+            document.getElementById('festivalBanner').style.display = 'flex';
+            document.getElementById('saveBanner').style.display = 'block';
+            document.getElementById('festivalBanner').style.backgroundColor = backgroundColor;
+            document.getElementById('messageLine1').textContent = message1;
+            document.getElementById('messageLine2').textContent = message2;
+        } else {
+            document.getElementById('festivalBanner').style.backgroundColor = '';
+            document.getElementById('festivalBanner').style.display = 'none';
+            document.getElementById('saveBanner').style.display = 'none';
+            document.getElementById('festivalImage').src = '';
+            document.getElementById('messageLine1').textContent = '';
+            document.getElementById('messageLine2').textContent = '';
+        }
+    }
+
+    function saveBannerAsPng() {
+        const banner = document.getElementById('festivalBanner');
+
+        if (typeof html2canvas === 'undefined') {
+            console.error("html2canvas is not loaded. Please include it in your HTML.");
+            return;
         }
 
-  function saveBannerAsPng() {
-            const banner = document.getElementById('festivalBanner');
-            
-            if (typeof html2canvas === 'undefined') {
-                console.error("html2canvas is not loaded. Please include it in your HTML.");
-                return;
-            }
-
-            html2canvas(banner, { 
-    useCORS: true,
-    scale: 2 
-}).then(function(canvas) { 
-                canvas.toBlob(function(blob) {
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(blob);
-                    link.download = 'festival_banner.png';
-                    link.click();
-                });
-            }).catch(error => {
-                console.error("Error capturing banner:", error);
+        html2canvas(banner, {
+            useCORS: true,
+            scale: 2
+        }).then(function(canvas) {
+            canvas.toBlob(function(blob) {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'festival_banner.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             });
-        }
+        }).catch(error => {
+            console.error("Error capturing banner:", error);
+        });
+    }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
 	</script> 
